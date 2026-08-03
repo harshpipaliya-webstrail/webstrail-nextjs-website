@@ -1,0 +1,47 @@
+/* ============================================================
+   SPACING, SIZING & RADII — Webstrail
+   4px base grid. Generous editorial rhythm (96px section bands).
+   Radii are a touch softer than a pure-corporate system to read
+   warm and approachable, without going pill-everywhere.
+   ============================================================ */
+:root {
+  /* ---- Spacing scale (4px base) ---- */
+  --space-0: 0;
+  --space-1: 0.25rem;   /* 4 */
+  --space-2: 0.5rem;    /* 8 */
+  --space-3: 0.75rem;   /* 12 */
+  --space-4: 1rem;      /* 16 */
+  --space-5: 1.5rem;    /* 24 */
+  --space-6: 2rem;      /* 32 */
+  --space-7: 3rem;      /* 48 */
+  --space-8: 4rem;      /* 64 */
+  --space-9: 6rem;      /* 96  — section rhythm */
+  --space-10: 8rem;     /* 128 */
+
+  /* ---- Semantic spacing ---- */
+  --section-y: var(--space-9);     /* vertical padding of major bands */
+  --card-pad: var(--space-6);      /* default card interior */
+  --card-pad-lg: var(--space-7);   /* signature / feature cards */
+  --gutter: var(--space-5);        /* grid gutters */
+
+  /* ---- Layout ---- */
+  --content-max: 1200px;           /* centered editorial column */
+  --content-narrow: 760px;         /* prose / single-column reading */
+  --page-gutter: clamp(1.25rem, 5vw, 3rem); /* @kind spacing */
+
+  /* ---- Border widths ---- */
+
+  /* ---- Radii ---- */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;    /* inputs, small cards */
+  --radius-lg: 16px;    /* content cards */
+  --radius-xl: 24px;    /* signature cards, large surfaces */
+  --radius-2xl: 32px;
+  --radius-pill: 9999px;
+  --radius-full: 50%;
+
+  /* ---- Border widths ---- */
+  --border-thin: 1px;
+  --border-med: 1.5px;
+}

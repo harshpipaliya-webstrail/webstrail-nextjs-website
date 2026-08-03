@@ -1,0 +1,27 @@
+/* ============================================================
+   ELEVATION — Webstrail
+   Soft, warm-tinted shadows (never pure black). Depth is delegated
+   mostly to surface contrast + hairlines; shadows are quiet and
+   lift slightly on hover. Color-block first, shadow second.
+   ============================================================ */
+:root {
+  /* warm shadow base — a brown-black so shadows feel sunlit, not cold */
+  --shadow-color: 28 22 12;        /* rgb of #1C160C */
+
+  --shadow-xs: 0 1px 2px rgb(var(--shadow-color) / 0.06);
+  --shadow-sm: 0 1px 2px rgb(var(--shadow-color) / 0.05),
+               0 2px 6px rgb(var(--shadow-color) / 0.06);
+  --shadow-md: 0 2px 4px rgb(var(--shadow-color) / 0.05),
+               0 8px 20px rgb(var(--shadow-color) / 0.08);
+  --shadow-lg: 0 4px 10px rgb(var(--shadow-color) / 0.06),
+               0 18px 44px rgb(var(--shadow-color) / 0.12);
+  --shadow-xl: 0 8px 18px rgb(var(--shadow-color) / 0.08),
+               0 32px 70px rgb(var(--shadow-color) / 0.16);
+
+  /* warm glow for hovered brand surfaces */
+  --glow-coral: 0 10px 30px color-mix(in srgb, var(--coral) 32%, transparent);
+  --glow-azure: 0 10px 30px color-mix(in srgb, var(--azure) 30%, transparent);
+
+  /* inset hairline ring used on cards for crisp edges */
+  --ring-hairline: inset 0 0 0 1px var(--hairline);
+}

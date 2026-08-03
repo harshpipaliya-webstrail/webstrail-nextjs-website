@@ -1,0 +1,19 @@
+<!-- @dsCard group="Spacing" viewport="700x210" name="Elevation" subtitle="Soft, warm-tinted shadows; depth from contrast, lift on hover" -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><link rel="stylesheet" href="../styles.css"/>
+<style>
+  body{margin:0;background:var(--surface-1);padding:30px;font-family:var(--font-sans)}
+  .row{display:flex;gap:24px;flex-wrap:wrap}
+  .item{display:flex;flex-direction:column;gap:10px;align-items:center}
+  .box{width:120px;height:74px;background:var(--canvas);border-radius:var(--radius-md)}
+  .name{font:var(--text-caption);color:var(--ink)}
+</style></head>
+<body>
+  <div class="row">
+    <div class="item"><div class="box" style="box-shadow:var(--shadow-xs)"></div><div class="name">shadow-xs</div></div>
+    <div class="item"><div class="box" style="box-shadow:var(--shadow-sm)"></div><div class="name">shadow-sm</div></div>
+    <div class="item"><div class="box" style="box-shadow:var(--shadow-md)"></div><div class="name">shadow-md</div></div>
+    <div class="item"><div class="box" style="box-shadow:var(--shadow-lg)"></div><div class="name">shadow-lg</div></div>
+    <div class="item"><div class="box" style="box-shadow:var(--shadow-xl)"></div><div class="name">shadow-xl</div></div>
+  </div>
+</body></html>

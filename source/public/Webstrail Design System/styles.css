@@ -1,0 +1,376 @@
+/* Flattened design-system tokens — inlined to remove render-blocking @import waterfall.
+   Source files remain in tokens/ and are the edit target; re-flatten after changes. */
+
+/* ---- tokens/fonts.css ---- */
+/* Webstrail webfonts.
+
+   SUBSTITUTION NOTICE: The brand type is Haas Grotesk / Haas Groot Disp
+   (the licensed display + text grotesque documented in the design analysis).
+   No brand binaries were supplied, so we load the documented open-source
+   substitute — Inter (text) + Inter Tight (display). Swap these @import +
+   --font-* declarations the moment the licensed Haas fonts arrive.
+
+   - Display / headings -> Inter Tight  (tight grotesque ≈ Haas Groot Disp)
+   - Body / UI / labels -> Inter         (≈ Haas Grotesk)
+   - Mono (incidental)  -> JetBrains Mono (code specimens only)
+*/
+
+
+/* ---- tokens/colors.css ---- */
+/* ============================================================
+   COLOR TOKENS — Webstrail
+   Sampled from the logo's four ribbon colors. Brand voltage now
+   comes from SOLID signature surfaces — one per logo color — not
+   gradients. Neutrals are warm-tinted so the system reads light,
+   editorial, and human.
+   ============================================================ */
+:root {
+  /* ---- The four logo colors (solid) ---- */
+  --coral:        #F0611F;  /* orange ribbon — warm primary accent */
+  --coral-deep:   #DC4A18;  /* press / hover-dark */
+  --coral-soft:   #FCE6DB;  /* tint surface */
+
+  --amber:        #E0A82E;  /* gold ribbon */
+  --amber-deep:   #BE851A;
+  --amber-soft:   #FBEFD3;
+
+  --sky:          #34BFF0;  /* light-blue ribbon */
+  --sky-deep:     #1AA3D8;
+  --sky-soft:     #DCF1FB;
+
+  --azure:        #1280D4;  /* blue ribbon — cool primary accent + link */
+  --azure-deep:   #0E5FA8;
+  --azure-soft:   #DBEAFB;
+
+  --navy:         #0F5090;  /* deepest blue in the mark */
+
+  /* ---- Neutrals (warm-tinted) ---- */
+  --canvas:        #FFFFFF;
+  --surface-1:     #FAF7F2;  /* warm paper — alternating bands */
+  --surface-2:     #F3EEE4;  /* warm sand — cards on paper */
+  --surface-3:     #E9E1D4;  /* stronger sand — wells, footers */
+  --ink-surface:   #16161A;  /* dark editorial band */
+  --ink-surface-2: #1F2026;  /* elevated dark card */
+
+  /* ---- Text ---- */
+  --ink:        #1E1D1B;
+  --ink-soft:   #36352F;
+  --body:       #4C4A43;
+  --muted:      #6F6B61;
+  --faint:      #9A9588;
+  --on-dark:    #FBF8F2;
+  --on-dark-muted: #B9B4A8;
+
+  /* ---- Lines & borders (warm) ---- */
+  --hairline:        #ECE5D9;
+  --hairline-strong: #D8CFBE;
+  --hairline-dark:   #2C2D33;
+
+  /* ---- Actions (semantic aliases) ---- */
+  --action:         var(--ink);     /* primary CTA = confident near-black */
+  --action-hover:   #000000;
+  --action-on:      var(--on-dark);
+  --brand-action:       var(--coral);   /* warm energetic CTA */
+  --brand-action-hover: var(--coral-deep);
+
+  /* ---- Links ---- */
+  --link:       var(--azure);
+  --link-hover: var(--azure-deep);
+
+  /* ---- Semantic status ---- */
+  --success:      #1E8E5A;  --success-soft: #DCF0E5;
+  --warning:      #BE851A;  --warning-soft: #FBEFD3;
+  --danger:       #C8412B;  --danger-soft:  #FBE1DB;
+  --info:         #1280D4;  --info-soft:    #DBEAFB;
+
+  /* ---- Focus ring ---- */
+  --focus-ring: 0 0 0 3px color-mix(in srgb, var(--azure) 38%, transparent);
+
+  /* ============================================================
+     SIGNATURE SURFACES — solid color blocks, one per logo color.
+     Each pairs a background with the text color that sits on it
+     (light colors take ink text; dark blues take white text).
+     ============================================================ */
+  --sig-coral-bg: var(--coral);  --sig-coral-fg: #FFFFFF;
+  --sig-amber-bg: var(--amber);  --sig-amber-fg: var(--ink);
+  --sig-sky-bg:   var(--sky);    --sig-sky-fg:   var(--ink);
+  --sig-azure-bg: var(--azure);  --sig-azure-fg: #FFFFFF;
+  --sig-navy-bg:  var(--navy);   --sig-navy-fg:  #FFFFFF;
+  --sig-ink-bg:   var(--ink-surface); --sig-ink-fg: var(--on-dark);
+
+  /* ---- Subtle hero wash (single warm tone, not a rainbow) ---- */
+  --wash-warm: radial-gradient(1100px 540px at 82% -12%, color-mix(in srgb, var(--coral) 13%, transparent) 0%, transparent 62%);
+}
+
+/* ---- tokens/typography.css ---- */
+/* ============================================================
+   TYPOGRAPHY TOKENS — Webstrail
+   One grotesque voice (Inter Tight for display, Inter for text) —
+   the documented substitute for Haas Groot Disp / Haas Grotesk.
+   Modest weights: display rarely exceeds 500. Emphasis comes from
+   SIZE and COLOR, never from heavy weight. Mono is incidental only.
+   ============================================================ */
+:root {
+  /* ---- Families ---- */
+  --font-display: "Inter Tight", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* ---- Weights ---- */
+  --w-regular: 400;   /* @kind font */
+  --w-medium: 500;    /* @kind font */
+  --w-semibold: 600;  /* @kind font */
+  --w-bold: 700;      /* @kind font */
+
+  /* ---- Display (Inter Tight) — emphasis from size, not weight ---- */
+  --text-display-2xl: 600 4.5rem/1.04 var(--font-display);    /* 72 */
+  --text-display-xl:  500 3.5rem/1.06 var(--font-display);    /* 56 */
+  --text-display-lg:  500 2.75rem/1.1 var(--font-display);    /* 44 */
+  --text-display-md:  500 2rem/1.18 var(--font-display);      /* 32 */
+  --text-display-sm:  500 1.5rem/1.28 var(--font-display);    /* 24 */
+
+  /* ---- Fluid display sizes (font-size only — apply over the shorthand) ---- */
+  --size-display-2xl: clamp(2.85rem, 1.5rem + 4.6vw, 4.75rem);  /* @kind spacing */
+  --size-display-lg:  clamp(2.1rem, 1.5rem + 2vw, 2.9rem);      /* @kind spacing */
+  --size-display-md:  clamp(1.65rem, 1.35rem + 1vw, 2.15rem);   /* @kind spacing */
+
+  /* ---- Titles (Inter) ---- */
+  --text-title-lg: var(--w-semibold) 1.5rem/1.3 var(--font-sans);    /* 24 */
+  --text-title-md: var(--w-semibold) 1.25rem/1.35 var(--font-sans);  /* 20 */
+  --text-title-sm: var(--w-semibold) 1.0625rem/1.4 var(--font-sans); /* 17 */
+
+  /* ---- Body (Inter) ---- */
+  --text-body-lg: var(--w-regular) 1.1875rem/1.6 var(--font-sans);   /* 19 */
+  --text-body-md: var(--w-regular) 1rem/1.6 var(--font-sans);        /* 16 */
+  --text-body-sm: var(--w-regular) 0.875rem/1.55 var(--font-sans);   /* 14 */
+
+  /* ---- Labels & UI (Inter) ---- */
+  --text-label: var(--w-medium) 0.9375rem/1.3 var(--font-sans);      /* 15 */
+  --text-button: var(--w-medium) 0.9375rem/1 var(--font-sans);       /* 15 */
+  --text-caption: var(--w-medium) 0.8125rem/1.4 var(--font-sans);    /* 13 */
+
+  /* ---- Eyebrow / overline (sans, uppercase + tracked) ---- */
+  --text-eyebrow: var(--w-semibold) 0.75rem/1.2 var(--font-sans);    /* 12 */
+  --text-mono-sm: var(--w-regular) 0.8125rem/1.5 var(--font-mono);   /* 13 — incidental code */
+
+  /* ---- Tracking ---- */
+  --track-eyebrow: 0.13em;     /* @kind other */
+  --track-tight: -0.01em;      /* @kind other */
+  --track-display: -0.022em;   /* Haas-tight display @kind other */
+}
+
+/* ---- tokens/spacing.css ---- */
+/* ============================================================
+   SPACING, SIZING & RADII — Webstrail
+   4px base grid. Generous editorial rhythm (96px section bands).
+   Radii are a touch softer than a pure-corporate system to read
+   warm and approachable, without going pill-everywhere.
+   ============================================================ */
+:root {
+  /* ---- Spacing scale (4px base) ---- */
+  --space-0: 0;
+  --space-1: 0.25rem;   /* 4 */
+  --space-2: 0.5rem;    /* 8 */
+  --space-3: 0.75rem;   /* 12 */
+  --space-4: 1rem;      /* 16 */
+  --space-5: 1.5rem;    /* 24 */
+  --space-6: 2rem;      /* 32 */
+  --space-7: 3rem;      /* 48 */
+  --space-8: 4rem;      /* 64 */
+  --space-9: 6rem;      /* 96  — section rhythm */
+  --space-10: 8rem;     /* 128 */
+
+  /* ---- Semantic spacing ---- */
+  --section-y: var(--space-9);     /* vertical padding of major bands */
+  --card-pad: var(--space-6);      /* default card interior */
+  --card-pad-lg: var(--space-7);   /* signature / feature cards */
+  --gutter: var(--space-5);        /* grid gutters */
+
+  /* ---- Layout ---- */
+  --content-max: 1200px;           /* centered editorial column */
+  --content-narrow: 760px;         /* prose / single-column reading */
+  --page-gutter: clamp(1.25rem, 5vw, 3rem); /* @kind spacing */
+
+  /* ---- Border widths ---- */
+
+  /* ---- Radii ---- */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;    /* inputs, small cards */
+  --radius-lg: 16px;    /* content cards */
+  --radius-xl: 24px;    /* signature cards, large surfaces */
+  --radius-2xl: 32px;
+  --radius-pill: 9999px;
+  --radius-full: 50%;
+
+  /* ---- Border widths ---- */
+  --border-thin: 1px;
+  --border-med: 1.5px;
+}
+
+/* ---- tokens/elevation.css ---- */
+/* ============================================================
+   ELEVATION — Webstrail
+   Soft, warm-tinted shadows (never pure black). Depth is delegated
+   mostly to surface contrast + hairlines; shadows are quiet and
+   lift slightly on hover. Color-block first, shadow second.
+   ============================================================ */
+:root {
+  /* warm shadow base — a brown-black so shadows feel sunlit, not cold */
+  --shadow-color: 28 22 12;        /* rgb of #1C160C */
+
+  --shadow-xs: 0 1px 2px rgb(var(--shadow-color) / 0.06);
+  --shadow-sm: 0 1px 2px rgb(var(--shadow-color) / 0.05),
+               0 2px 6px rgb(var(--shadow-color) / 0.06);
+  --shadow-md: 0 2px 4px rgb(var(--shadow-color) / 0.05),
+               0 8px 20px rgb(var(--shadow-color) / 0.08);
+  --shadow-lg: 0 4px 10px rgb(var(--shadow-color) / 0.06),
+               0 18px 44px rgb(var(--shadow-color) / 0.12);
+  --shadow-xl: 0 8px 18px rgb(var(--shadow-color) / 0.08),
+               0 32px 70px rgb(var(--shadow-color) / 0.16);
+
+  /* warm glow for hovered brand surfaces */
+  --glow-coral: 0 10px 30px color-mix(in srgb, var(--coral) 32%, transparent);
+  --glow-azure: 0 10px 30px color-mix(in srgb, var(--azure) 30%, transparent);
+
+  /* inset hairline ring used on cards for crisp edges */
+  --ring-hairline: inset 0 0 0 1px var(--hairline);
+}
+
+/* ---- tokens/motion.css ---- */
+/* ============================================================
+   MOTION — Webstrail
+   Calm, confident, human. Gentle ease-out for entrances; quick,
+   springy lift on hover. Fade-and-rise is the signature scroll
+   animation. Always respect prefers-reduced-motion.
+   ============================================================ */
+:root {
+  /* ---- Durations ---- */
+  --dur-fast: 140ms;    /* @kind other */
+  --dur-base: 240ms;    /* @kind other */
+  --dur-slow: 480ms;    /* @kind other */
+  --dur-slower: 720ms;  /* @kind other */
+
+  /* ---- Easings ---- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1); /* @kind other */
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1); /* @kind other */
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1); /* @kind other */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1); /* @kind other */
+
+  /* ---- Common transitions ---- */
+  --t-colors: color var(--dur-fast) var(--ease-standard),
+              background-color var(--dur-fast) var(--ease-standard),
+              border-color var(--dur-fast) var(--ease-standard); /* @kind other */
+  --t-lift: transform var(--dur-base) var(--ease-spring),
+            box-shadow var(--dur-base) var(--ease-out); /* @kind other */
+}
+
+/* ---- Signature keyframes ---- */
+@keyframes ws-fade-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes ws-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes ws-ribbon-pan {
+  from { background-position: 0% 50%; }
+  to   { background-position: 100% 50%; }
+}
+
+/* Reveal-on-scroll utility: start hidden, add .is-in (via IntersectionObserver)
+   to animate. Falls back to fully visible when JS/observer is absent or motion
+   is reduced. */
+.ws-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity var(--dur-slow) var(--ease-out),
+              transform var(--dur-slow) var(--ease-out);
+  will-change: opacity, transform;
+}
+.ws-reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .ws-reveal { opacity: 1; transform: none; }
+}
+
+/* ---- tokens/base.css ---- */
+/* ============================================================
+   BASE — Webstrail
+   Light element defaults built on the tokens. Imported last so it
+   can rely on every token file above it.
+   ============================================================ */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font: var(--text-body-md);
+  color: var(--body);
+  background: var(--canvas);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: var(--w-medium);
+  letter-spacing: var(--track-display);
+  text-wrap: balance;
+}
+
+p { margin: 0; text-wrap: pretty; }
+
+a {
+  color: var(--link);
+  text-decoration: none;
+  transition: var(--t-colors);
+}
+a:hover { color: var(--link-hover); }
+
+strong, b { font-weight: var(--w-semibold); }
+
+img, svg, video { display: block; max-width: 100%; }
+
+::selection {
+  background: color-mix(in srgb, var(--coral) 26%, transparent);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+  border-radius: var(--radius-xs);
+}
+
+/* ---- Small reusable text helpers ---- */
+.ws-eyebrow {
+  font: var(--text-eyebrow);
+  letter-spacing: var(--track-eyebrow);
+  text-transform: uppercase;
+  color: var(--coral-deep);
+}
+.ws-display { font: var(--text-display-lg); color: var(--ink); }
+.ws-lede { font: var(--text-body-lg); color: var(--body); }
+
+/* ---- Brand accent text (a key word in a heading) ---- */
+.ws-grad-text {
+  color: var(--coral);
+}

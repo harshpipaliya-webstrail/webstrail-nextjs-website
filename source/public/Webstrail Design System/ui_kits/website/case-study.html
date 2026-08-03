@@ -1,0 +1,145 @@
+<!-- @dsCard group="Website" viewport="1280x820" name="Case study detail" subtitle="Outcome-framed case study: solid-color header, narrative, stats, CTA" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tooth Teller — Webstrail case study</title>
+<link rel="stylesheet" href="../../styles.css" />
+<link rel="stylesheet" href="site.css" />
+<style>
+  .cs-hero { position: relative; padding-top: 132px; padding-bottom: var(--space-8); color: #fff; overflow: hidden; background: var(--coral); }
+  .cs-hero::after { content: ""; position: absolute; inset: 0; background: radial-gradient(120% 100% at 84% -25%, rgba(255,255,255,.12), transparent 60%); pointer-events: none; }
+  .cs-hero__inner { position: relative; }
+  .cs-hero .eyebrow { color: rgba(255,255,255,.85); }
+  .cs-hero .eyebrow::before { background: rgba(255,255,255,.7); }
+  .cs-hero h1 { font: var(--text-display-xl); color: #fff; letter-spacing: var(--track-display); margin: var(--space-4) 0 var(--space-4); max-width: 18ch; }
+  .cs-hero p { font: var(--text-body-lg); color: rgba(255,255,255,.92); max-width: 50ch; }
+  .cs-meta { display: flex; gap: var(--space-7); flex-wrap: wrap; margin-top: var(--space-6); }
+  .cs-meta .k { font: var(--text-eyebrow); letter-spacing: var(--track-eyebrow); text-transform: uppercase; color: rgba(255,255,255,.7); }
+  .cs-meta .v { font: var(--text-title-sm); color: #fff; margin-top: 4px; }
+  .cs-statbar { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gutter); margin-top: calc(var(--space-7) * -1); position: relative; z-index: 3; }
+  .cs-statcard { background: var(--canvas); border-radius: var(--radius-lg); padding: var(--card-pad); box-shadow: var(--shadow-lg), var(--ring-hairline); }
+  .cs-statcard .n { font: var(--text-display-md); color: var(--ink); font-variant-numeric: tabular-nums; }
+  .cs-statcard .l { font: var(--text-body-sm); color: var(--muted); margin-top: 4px; }
+  .cs-body { display: grid; grid-template-columns: 1fr; gap: var(--space-7); max-width: var(--content-narrow); margin-inline: auto; }
+  .cs-block h2 { font: var(--text-display-md); color: var(--ink); letter-spacing: var(--track-display); margin-bottom: var(--space-3); }
+  .cs-block p { font: var(--text-body-lg); color: var(--body); margin-bottom: var(--space-4); }
+  .cs-pull { font: var(--text-display-sm); font-weight: var(--w-regular); color: var(--ink); border-left: 3px solid var(--coral); padding-left: var(--space-5); margin: var(--space-6) 0; text-wrap: balance; }
+  .cs-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+<div class="site">
+
+  <!-- NAV -->
+  <header class="nav is-stuck" id="nav">
+    <div class="wrap nav__row">
+      <a class="nav__brand" href="index.html" aria-label="Webstrail home"><img src="../../assets/webstrail-logo.png" alt="Webstrail" /></a>
+      <nav class="nav__links">
+        <a href="index.html#what">What we do</a>
+        <a href="index.html#work">Work</a>
+        <a href="index.html#how">How we work</a>
+        <a href="index.html#contact">About</a>
+      </nav>
+      <div class="nav__cta">
+        <a class="btn btn--brand" href="index.html#contact">Book a discovery call</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- CASE HERO -->
+  <section class="cs-hero">
+    <div class="wrap cs-hero__inner">
+      <p class="eyebrow">Case study · Dental product platform</p>
+      <h1>Tooth Teller</h1>
+      <p>We built the core dental product over two years and ran it on a monthly retainer — the clearest proof we have that we can be trusted to operate software, not just deliver it and leave.</p>
+      <div class="cs-meta">
+        <div><div class="k">Segment</div><div class="v">Dental product / platform</div></div>
+        <div><div class="k">Engagement</div><div class="v">Build &amp; run · 2 years</div></div>
+        <div><div class="k">Stack</div><div class="v">MERN · Open Dental</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAT BAR -->
+  <section class="section--tight">
+    <div class="wrap">
+      <div class="cs-statbar reveal">
+        <div class="cs-statcard"><div class="n">2 yrs</div><div class="l">Designed, built, and run on retainer</div></div>
+        <div class="cs-statcard"><div class="n">1 team</div><div class="l">From prototype to production and beyond</div></div>
+        <div class="cs-statcard"><div class="n">Open Dental</div><div class="l">Integrated at the core of the product</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BODY -->
+  <section class="section">
+    <div class="wrap cs-body">
+      <div class="cs-block reveal">
+        <h2>The problem</h2>
+        <p>Tooth Teller had a clear idea for a dental product and the domain insight to back it — but no engineering team to build it. Off-the-shelf tools couldn't express their model, and hiring and managing developers would have pulled the founders away from the business they actually knew.</p>
+        <p>They needed a team that already understood dental: the workflows, the compliance, and the practice-management systems any serious dental product has to integrate with from day one.</p>
+      </div>
+
+      <div class="cs-block reveal">
+        <h2>What we built</h2>
+        <p>We designed and built the core platform end to end, with Open Dental integration sitting at the heart of it. Then we did the part most shops skip — we stayed and ran it, releasing improvements on a roadmap month after month.</p>
+        <p class="cs-pull">"They understand our business better than any vendor we've worked with — and two years in, they still run it with us."</p>
+        <p>That two-year retainer is the heart of the story. It's not a project that ended at launch; it's a product we operated as if it were our own.</p>
+        <div class="cs-tags">
+          <span class="tag">MERN</span><span class="tag">Open Dental</span><span class="tag">Membership</span><span class="tag">Reporting</span><span class="tag">Build + run</span>
+        </div>
+      </div>
+
+      <div class="cs-block reveal">
+        <h2>Where it stands</h2>
+        <p>The build is complete and the platform is live. It's the proof behind everything we say: we know dental, we build it right once, and we stay to run it. The same model we ran for Tooth Teller is the one we bring to every dental company we work with.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section--tight">
+    <div class="wrap">
+      <div class="sigband sigband--ink reveal">
+        <div class="sigband__grid">
+          <div>
+            <p class="eyebrow">Here for the build, and everything after</p>
+            <h2>Want a product team that stays to run it?</h2>
+            <p>Tell us what you're trying to build. We'll give you an honest read on whether we're the right fit.</p>
+            <div style="margin-top:24px"><a class="btn btn--lg btn--ondark" href="index.html#contact">Book a discovery call</a></div>
+          </div>
+          <div class="sigband__stats">
+            <div class="sigband__stat"><div class="n">100%</div><div class="l">Of clients chose to keep working with us</div></div>
+            <div class="sigband__stat"><div class="n">~20</div><div class="l">Engineers, designers &amp; product people</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="../../assets/webstrail-logo.png" alt="Webstrail" />
+          <p>The product and engineering partner for dental companies across North America.</p>
+          <p class="tagline">Here for the build, and everything after.</p>
+        </div>
+        <div><h4>Company</h4><ul><li><a href="index.html#what">What we do</a></li><li><a href="index.html#work">Work</a></li><li><a href="index.html#how">How we work</a></li></ul></div>
+        <div><h4>Who we build for</h4><ul><li><a href="index.html#contact">DSOs &amp; groups</a></li><li><a href="index.html#contact">Membership plans</a></li><li><a href="index.html#contact">Dental-tech founders</a></li></ul></div>
+        <div><h4>Integrations</h4><ul><li><a href="index.html#work">Open Dental</a></li><li><a href="index.html#work">Dentrix</a></li><li><a href="index.html#work">tab32</a></li></ul></div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 Webstrail. Product and engineering, for dentistry and nothing else.</span>
+        <span>North America · webstrail.com</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+<script src="app.js"></script>
+</body>
+</html>

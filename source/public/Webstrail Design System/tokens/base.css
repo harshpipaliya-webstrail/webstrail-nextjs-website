@@ -1,0 +1,68 @@
+/* ============================================================
+   BASE — Webstrail
+   Light element defaults built on the tokens. Imported last so it
+   can rely on every token file above it.
+   ============================================================ */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font: var(--text-body-md);
+  color: var(--body);
+  background: var(--canvas);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: var(--w-medium);
+  letter-spacing: var(--track-display);
+  text-wrap: balance;
+}
+
+p { margin: 0; text-wrap: pretty; }
+
+a {
+  color: var(--link);
+  text-decoration: none;
+  transition: var(--t-colors);
+}
+a:hover { color: var(--link-hover); }
+
+strong, b { font-weight: var(--w-semibold); }
+
+img, svg, video { display: block; max-width: 100%; }
+
+::selection {
+  background: color-mix(in srgb, var(--coral) 26%, transparent);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+  border-radius: var(--radius-xs);
+}
+
+/* ---- Small reusable text helpers ---- */
+.ws-eyebrow {
+  font: var(--text-eyebrow);
+  letter-spacing: var(--track-eyebrow);
+  text-transform: uppercase;
+  color: var(--coral-deep);
+}
+.ws-display { font: var(--text-display-lg); color: var(--ink); }
+.ws-lede { font: var(--text-body-lg); color: var(--body); }
+
+/* ---- Brand accent text (a key word in a heading) ---- */
+.ws-grad-text {
+  color: var(--coral);
+}

@@ -1,0 +1,13 @@
+/* Webstrail webfonts.
+
+   SUBSTITUTION NOTICE: The brand type is Haas Grotesk / Haas Groot Disp
+   (the licensed display + text grotesque documented in the design analysis).
+   No brand binaries were supplied, so we load the documented open-source
+   substitute — Inter (text) + Inter Tight (display). Swap these @import +
+   --font-* declarations the moment the licensed Haas fonts arrive.
+
+   - Display / headings -> Inter Tight  (tight grotesque ≈ Haas Groot Disp)
+   - Body / UI / labels -> Inter         (≈ Haas Grotesk)
+   - Mono (incidental)  -> JetBrains Mono (code specimens only)
+*/
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");

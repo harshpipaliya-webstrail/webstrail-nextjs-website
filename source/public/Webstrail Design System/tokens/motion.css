@@ -1,0 +1,66 @@
+/* ============================================================
+   MOTION — Webstrail
+   Calm, confident, human. Gentle ease-out for entrances; quick,
+   springy lift on hover. Fade-and-rise is the signature scroll
+   animation. Always respect prefers-reduced-motion.
+   ============================================================ */
+:root {
+  /* ---- Durations ---- */
+  --dur-fast: 140ms;    /* @kind other */
+  --dur-base: 240ms;    /* @kind other */
+  --dur-slow: 480ms;    /* @kind other */
+  --dur-slower: 720ms;  /* @kind other */
+
+  /* ---- Easings ---- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1); /* @kind other */
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1); /* @kind other */
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1); /* @kind other */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1); /* @kind other */
+
+  /* ---- Common transitions ---- */
+  --t-colors: color var(--dur-fast) var(--ease-standard),
+              background-color var(--dur-fast) var(--ease-standard),
+              border-color var(--dur-fast) var(--ease-standard); /* @kind other */
+  --t-lift: transform var(--dur-base) var(--ease-spring),
+            box-shadow var(--dur-base) var(--ease-out); /* @kind other */
+}
+
+/* ---- Signature keyframes ---- */
+@keyframes ws-fade-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes ws-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes ws-ribbon-pan {
+  from { background-position: 0% 50%; }
+  to   { background-position: 100% 50%; }
+}
+
+/* Reveal-on-scroll utility: start hidden, add .is-in (via IntersectionObserver)
+   to animate. Falls back to fully visible when JS/observer is absent or motion
+   is reduced. */
+.ws-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity var(--dur-slow) var(--ease-out),
+              transform var(--dur-slow) var(--ease-out);
+  will-change: opacity, transform;
+}
+.ws-reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .ws-reveal { opacity: 1; transform: none; }
+}

@@ -1,0 +1,21 @@
+<!-- @dsCard group="Type" viewport="700x200" name="Eyebrows, labels & mono" subtitle="Uppercase tracked-sans overlines, UI labels, and incidental mono" -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><link rel="stylesheet" href="../styles.css"/>
+<style>
+  body{margin:0;background:var(--canvas);padding:26px}
+  .stack{display:flex;flex-direction:column;gap:16px}
+  .line{display:flex;align-items:center;gap:16px}
+  .tok{font:var(--text-mono-sm);color:var(--muted);min-width:120px;flex:0 0 120px}
+  .eb{font:var(--text-eyebrow);letter-spacing:var(--track-eyebrow);text-transform:uppercase;color:var(--coral-deep)}
+  .lbl{font:var(--text-label);color:var(--ink-soft)}
+  .btn{font:var(--text-button);color:var(--ink)}
+  .mono{font:var(--text-mono-sm);color:var(--body)}
+</style></head>
+<body>
+  <div class="stack">
+    <div class="line"><span class="tok">eyebrow</span><span class="eb">What we do</span></div>
+    <div class="line"><span class="tok">label · 500</span><span class="lbl">Work email</span></div>
+    <div class="line"><span class="tok">button · 600</span><span class="btn">Book a discovery call</span></div>
+    <div class="line"><span class="tok">mono-sm</span><span class="mono">npm run build && ship</span></div>
+  </div>
+</body></html>

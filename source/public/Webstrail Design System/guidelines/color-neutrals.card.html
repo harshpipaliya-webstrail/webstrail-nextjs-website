@@ -1,0 +1,31 @@
+<!-- @dsCard group="Colors" viewport="700x210" name="Neutrals — warm" subtitle="Warm-tinted canvas, surfaces, ink and text — never cool gray" -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><link rel="stylesheet" href="../styles.css"/>
+<style>
+  body{margin:0;background:var(--canvas);padding:22px;font-family:var(--font-sans)}
+  .row{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+  .sw{border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--ring-hairline)}
+  .chip{height:62px}
+  .meta{padding:8px 10px}
+  .name{font:var(--text-caption);color:var(--ink)}
+  .hex{font:var(--text-mono-sm);color:var(--muted);text-transform:uppercase}
+  h4{margin:0 0 12px;font:var(--text-eyebrow);letter-spacing:var(--track-eyebrow);text-transform:uppercase;color:var(--muted)}
+</style></head>
+<body>
+  <h4>Surfaces</h4>
+  <div class="row" style="margin-bottom:16px">
+    <div class="sw"><div class="chip" style="background:var(--canvas)"></div><div class="meta"><div class="name">Canvas</div><div class="hex">#FFFFFF</div></div></div>
+    <div class="sw"><div class="chip" style="background:var(--surface-1)"></div><div class="meta"><div class="name">Surface 1</div><div class="hex">#FAF7F2</div></div></div>
+    <div class="sw"><div class="chip" style="background:var(--surface-2)"></div><div class="meta"><div class="name">Surface 2</div><div class="hex">#F3EEE4</div></div></div>
+    <div class="sw"><div class="chip" style="background:var(--surface-3)"></div><div class="meta"><div class="name">Surface 3</div><div class="hex">#E9E1D4</div></div></div>
+    <div class="sw"><div class="chip" style="background:var(--ink-surface)"></div><div class="meta"><div class="name">Ink surface</div><div class="hex">#16161A</div></div></div>
+  </div>
+  <h4>Text & lines</h4>
+  <div class="row">
+    <div class="sw"><div class="chip" style="background:var(--ink)"></div><div class="meta"><div class="name">Ink</div><div class="hex">#1E1D1B</div></div></div>
+    <div class="sw"><div class="chip" style="background:var(--body)"></div><div class="meta"><div class="name">Body</div><div class="hex">#4C4A43</div></div></div>
+    <div class="sw"><div class="chip" style="background:var(--muted)"></div><div class="meta"><div class="name">Muted</div><div class="hex">#6F6B61</div></div></div>
+    <div class="sw"><div class="chip" style="background:var(--faint)"></div><div class="meta"><div class="name">Faint</div><div class="hex">#9A9588</div></div></div>
+    <div class="sw"><div class="chip" style="background:var(--hairline-strong)"></div><div class="meta"><div class="name">Hairline</div><div class="hex">#D8CFBE</div></div></div>
+  </div>
+</body></html>

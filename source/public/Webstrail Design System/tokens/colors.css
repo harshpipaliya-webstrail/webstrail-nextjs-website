@@ -1,0 +1,84 @@
+/* ============================================================
+   COLOR TOKENS — Webstrail
+   Sampled from the logo's four ribbon colors. Brand voltage now
+   comes from SOLID signature surfaces — one per logo color — not
+   gradients. Neutrals are warm-tinted so the system reads light,
+   editorial, and human.
+   ============================================================ */
+:root {
+  /* ---- The four logo colors (solid) ---- */
+  --coral:        #F0611F;  /* orange ribbon — warm primary accent */
+  --coral-deep:   #DC4A18;  /* press / hover-dark */
+  --coral-soft:   #FCE6DB;  /* tint surface */
+
+  --amber:        #E0A82E;  /* gold ribbon */
+  --amber-deep:   #BE851A;
+  --amber-soft:   #FBEFD3;
+
+  --sky:          #34BFF0;  /* light-blue ribbon */
+  --sky-deep:     #1AA3D8;
+  --sky-soft:     #DCF1FB;
+
+  --azure:        #1280D4;  /* blue ribbon — cool primary accent + link */
+  --azure-deep:   #0E5FA8;
+  --azure-soft:   #DBEAFB;
+
+  --navy:         #0F5090;  /* deepest blue in the mark */
+
+  /* ---- Neutrals (warm-tinted) ---- */
+  --canvas:        #FFFFFF;
+  --surface-1:     #FAF7F2;  /* warm paper — alternating bands */
+  --surface-2:     #F3EEE4;  /* warm sand — cards on paper */
+  --surface-3:     #E9E1D4;  /* stronger sand — wells, footers */
+  --ink-surface:   #16161A;  /* dark editorial band */
+  --ink-surface-2: #1F2026;  /* elevated dark card */
+
+  /* ---- Text ---- */
+  --ink:        #1E1D1B;
+  --ink-soft:   #36352F;
+  --body:       #4C4A43;
+  --muted:      #6F6B61;
+  --faint:      #9A9588;
+  --on-dark:    #FBF8F2;
+  --on-dark-muted: #B9B4A8;
+
+  /* ---- Lines & borders (warm) ---- */
+  --hairline:        #ECE5D9;
+  --hairline-strong: #D8CFBE;
+  --hairline-dark:   #2C2D33;
+
+  /* ---- Actions (semantic aliases) ---- */
+  --action:         var(--ink);     /* primary CTA = confident near-black */
+  --action-hover:   #000000;
+  --action-on:      var(--on-dark);
+  --brand-action:       var(--coral);   /* warm energetic CTA */
+  --brand-action-hover: var(--coral-deep);
+
+  /* ---- Links ---- */
+  --link:       var(--azure);
+  --link-hover: var(--azure-deep);
+
+  /* ---- Semantic status ---- */
+  --success:      #1E8E5A;  --success-soft: #DCF0E5;
+  --warning:      #BE851A;  --warning-soft: #FBEFD3;
+  --danger:       #C8412B;  --danger-soft:  #FBE1DB;
+  --info:         #1280D4;  --info-soft:    #DBEAFB;
+
+  /* ---- Focus ring ---- */
+  --focus-ring: 0 0 0 3px color-mix(in srgb, var(--azure) 38%, transparent);
+
+  /* ============================================================
+     SIGNATURE SURFACES — solid color blocks, one per logo color.
+     Each pairs a background with the text color that sits on it
+     (light colors take ink text; dark blues take white text).
+     ============================================================ */
+  --sig-coral-bg: var(--coral);  --sig-coral-fg: #FFFFFF;
+  --sig-amber-bg: var(--amber);  --sig-amber-fg: var(--ink);
+  --sig-sky-bg:   var(--sky);    --sig-sky-fg:   var(--ink);
+  --sig-azure-bg: var(--azure);  --sig-azure-fg: #FFFFFF;
+  --sig-navy-bg:  var(--navy);   --sig-navy-fg:  #FFFFFF;
+  --sig-ink-bg:   var(--ink-surface); --sig-ink-fg: var(--on-dark);
+
+  /* ---- Subtle hero wash (single warm tone, not a rainbow) ---- */
+  --wash-warm: radial-gradient(1100px 540px at 82% -12%, color-mix(in srgb, var(--coral) 13%, transparent) 0%, transparent 62%);
+}

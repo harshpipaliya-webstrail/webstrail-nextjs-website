@@ -1,0 +1,18 @@
+<!-- @dsCard group="Colors" viewport="700x150" name="Semantic — status" subtitle="Success, warning, danger, info — each with a soft tint" -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><link rel="stylesheet" href="../styles.css"/>
+<style>
+  body{margin:0;background:var(--canvas);padding:22px;font-family:var(--font-sans)}
+  .row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .pair{border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--ring-hairline)}
+  .solid{height:46px;display:flex;align-items:center;padding:0 12px;color:#fff;font:var(--text-caption)}
+  .soft{height:34px;display:flex;align-items:center;padding:0 12px;font:var(--text-mono-sm)}
+</style></head>
+<body>
+  <div class="row">
+    <div class="pair"><div class="solid" style="background:var(--success)">Success</div><div class="soft" style="background:var(--success-soft);color:var(--success)">#1E8E5A</div></div>
+    <div class="pair"><div class="solid" style="background:var(--warning)">Warning</div><div class="soft" style="background:var(--warning-soft);color:var(--warning)">#C4861A</div></div>
+    <div class="pair"><div class="solid" style="background:var(--danger)">Danger</div><div class="soft" style="background:var(--danger-soft);color:var(--danger)">#C8412B</div></div>
+    <div class="pair"><div class="solid" style="background:var(--info)">Info</div><div class="soft" style="background:var(--info-soft);color:var(--info)">#1878D8</div></div>
+  </div>
+</body></html>

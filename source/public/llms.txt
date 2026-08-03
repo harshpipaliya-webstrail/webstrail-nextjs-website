@@ -1,0 +1,44 @@
+# Webstrail
+
+> Webstrail is the product and engineering partner for dental companies across North America. We design, build, and run custom software for dentistry and nothing else — for DSOs, dental software providers, dental-tech founders, coaching firms, GPOs, and dental labs. SOC 2 Type II and HIPAA. Tagline: Here for the build, and everything after.
+
+Last updated: 2026-07-16
+
+Webstrail builds custom dental software: revenue cycle management (RCM), practice growth, patient experience, platform and PMS integrations, and specialized builds (membership platforms, dental AI, MVPs, GPO/lab portals, consulting). We integrate with Open Dental, Dentrix, Eaglesoft, Denticon, CareStack, Curve Dental, tab32, and clearinghouses (DentalXChange, Vyne, Change Healthcare, Availity). Each service also has detailed solution pages (30+), one per capability — e.g. insurance eligibility verification, claims processing, A/R automation, dental CRM, multi-location analytics, online scheduling, AI treatment plans, PMS data migration, data warehouse, teledentistry, and more — under /services/<service>/<solution>/. We build and run what we ship. Contact: sales@webstrail.com · +1-630-931-8560.
+
+## Services
+- [Revenue Cycle Management](https://webstrail.com/services/revenue-cycle-management/): Custom dental RCM — eligibility, claims, ERA/EOB reconciliation, A/R automation, patient payments.
+- [Practice Growth](https://webstrail.com/services/practice-growth/): Custom dental CRM, multi-location KPI analytics, patient reactivation, reputation automation.
+- [Patient Experience](https://webstrail.com/services/patient-experience/): Patient portals, online scheduling, two-way communication, online payments.
+- [Platform & Integrations](https://webstrail.com/services/platform-integrations/): PMS integration, unified data layer, two-way sync, data migration.
+- [Specialized Builds](https://webstrail.com/services/specialized-builds/): Membership platforms, production AI, teledentistry, founder MVPs, GPO/lab portals, consulting.
+
+## Who we build for
+- [DSOs & Multi-Location Groups](https://webstrail.com/who-we-work-with/dsos-multi-location-groups/): Custom software for Dental Support Organizations — one revenue view and unified analytics across every PMS.
+- [Dental Software Providers](https://webstrail.com/who-we-work-with/dental-software-providers/): Dedicated engineering, staff augmentation, and white-label builds.
+- [Dental-Tech Founders](https://webstrail.com/who-we-work-with/dental-tech-founders/): MVP development and a technical product partner.
+- [Practice & Coaching Firms](https://webstrail.com/who-we-work-with/practice-coaching-firms/): Assessment, coaching, and CRM platforms that scale a methodology.
+- [GPOs](https://webstrail.com/who-we-work-with/gpos/): Member portals and vendor catalogs for group purchasing organizations.
+- [Dental Labs & Adjacent](https://webstrail.com/who-we-work-with/dental-labs/): Lab, teledentistry, and insurance software.
+
+## Resources (guides & primers)
+- [How to reduce dental claim denials](https://webstrail.com/resources/how-to-reduce-dental-claim-denials/)
+- [How to choose a dental PMS integration partner](https://webstrail.com/resources/how-to-choose-a-dental-pms-integration-partner/)
+- [Open Dental vs Dentrix vs Eaglesoft: an integration guide](https://webstrail.com/resources/open-dental-vs-dentrix-vs-eaglesoft-integration-guide/)
+- [What is a DSO (Dental Support Organization)?](https://webstrail.com/resources/what-is-a-dso-dental-support-organization/)
+- [DSO KPI dashboard requirements](https://webstrail.com/resources/dso-kpi-dashboard-requirements/)
+- [HIPAA compliance checklist for dental software](https://webstrail.com/resources/hipaa-compliance-checklist-for-dental-software/)
+- [SOC 2 Type II for dental tech](https://webstrail.com/resources/soc-2-type-ii-for-dental-tech/)
+- [Dental revenue-cycle automation: a primer](https://webstrail.com/resources/dental-revenue-cycle-automation-primer/)
+- [Build vs. buy: custom dental software](https://webstrail.com/resources/build-vs-buy-dental-software/)
+- [What it costs to build custom dental software](https://webstrail.com/resources/cost-to-build-custom-dental-software/)
+- [Patient-experience software guide](https://webstrail.com/resources/patient-experience-software-guide/)
+- [Migrating dental data between PMS systems](https://webstrail.com/resources/migrating-dental-data-between-pms-systems/)
+
+## Contact
+- [Contact Webstrail](https://webstrail.com/contact/): Free 30-minute discovery call, sales@webstrail.com, +1-630-931-8560.
+
+## About
+- [About Webstrail](https://webstrail.com/about/): Mission, values, and leadership (Nagraj Prabhu Mudradi, CEO; Kishan Lakkad, CTO; Paritosh, CPO).
+- [Case studies](https://webstrail.com/case-studies.html): 17 dental software builds we designed, built, and run.
+- [Trust Center](https://webstrail.com/trust-service-center.html): SOC 2 Type II, HIPAA, continuous monitoring.
