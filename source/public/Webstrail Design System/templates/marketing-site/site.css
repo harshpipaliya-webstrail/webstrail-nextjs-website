@@ -6,7 +6,7 @@
    ============================================================ */
 
 /* ---------- shared layout ---------- */
-.site { color: var(--body); background: var(--canvas); overflow-x: hidden; }
+.site { color: var(--body); background: var(--canvas); overflow-x: clip; }
 .wrap { width: 100%; max-width: var(--content-max); margin-inline: auto; padding-inline: var(--page-gutter); }
 .section { padding-block: var(--section-y); }
 .section--tight { padding-block: var(--space-8); }
