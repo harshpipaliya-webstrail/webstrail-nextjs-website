@@ -62,16 +62,15 @@
   .int-disclaimer {margin: clamp(20px, 3vw, 36px) auto 0; max-width: 760px; text-align: center; font-size: .8rem; line-height: 1.6; color: rgba(255,255,255,.42); }
   /* Why Webstrail — scroll-pinned band: big title fades in, scales down to top-left while the steps reveal.
      Full-bleed light→dark blue gradient on the pinned viewport, deepening to #121620 just as Integrations (solid #121620) begins. */
-  .approach--anim {position: relative; height: 280vh; background: var(--surface-1); padding: 0; color: var(--on-dark); }
-  .why__sticky {position: sticky; top: 0; height: 100vh; overflow: hidden; isolation: isolate; border-radius: 12px 12px 0 0;
+  .approach--anim {position: relative; background: var(--surface-1); padding: 0; color: var(--on-dark); }
+  .why__sticky {position: static; overflow: hidden; isolation: isolate; border-radius: 12px 12px 0 0;
     background: linear-gradient(180deg, #2186CF 0%, #1668AD 14%, #114E84 30%, #0E3A62 46%, #102B45 64%, #141F2E 84%, #121620 100%); }
-  .why__stage {position: relative; width: 100%; max-width: var(--content-max); height: 100%; margin: 0 auto; padding: clamp(92px, 12vh, 150px) var(--page-gutter) clamp(40px, 6vh, 80px); display: flex; flex-direction: column; }
-  .why__head {transform-origin: top left; will-change: transform, opacity; opacity: 0; align-self: flex-start; width: -webkit-fit-content; width: fit-content; max-width: 100%; }
+  .why__stage {position: relative; width: 100%; max-width: var(--content-max); margin: 0 auto; padding: clamp(92px, 12vh, 150px) var(--page-gutter) clamp(40px, 6vh, 80px); display: flex; flex-direction: column; }
+  .why__head {align-self: flex-start; width: 100%; max-width: 100%; }
   .why__head .eyebrow--ondark {color: #CFE3F6; margin-bottom: var(--space-4); }
   .why__head h2 {font-size: clamp(2rem, 1.3rem + 2.2vw, 2.85rem); line-height: 1.14; letter-spacing: -0.03em; color: #fff; font-weight: var(--w-medium); max-width: none; }
-  .why__head h2 .wword {display: inline-block; opacity: 0; will-change: opacity, transform; }
-  .approach--anim.is-static .why__head h2 .wword {opacity: 1 !important; transform: none !important; }
-  .why__body {will-change: opacity, transform; opacity: 0; margin-top: clamp(var(--space-5), 5vh, var(--space-7)); }
+  .why__head h2 .wword {display: inline; }
+  .why__body {margin-top: clamp(var(--space-5), 5vh, var(--space-7)); }
   .why__lede {color: #DCE6F2; font-size: 1.0625rem; line-height: 1.6; max-width: 62ch; }
   .why__body .steps--4 {margin-top: clamp(var(--space-5), 4vh, var(--space-6)); }
   /* ===== Round 4 tweaks ===== */
@@ -210,19 +209,7 @@
     letter-spacing: -0.01em; }
   .approach--anim .step {background: rgba(8,14,24,.34); border-color: rgba(255,255,255,.14); -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px); }
   .approach--anim .step__tag {border-color: rgba(255,255,255,.22); color: #E6EEF8; }
-  /* Static fallback — reduced-motion (desktop) and small screens: no pin, title at rest top-left, everything visible */
-  .approach--anim.is-static {height: auto; }
-  .approach--anim.is-static .why__sticky {position: static; height: auto; }
-  .approach--anim.is-static .why__stage {height: auto; display: block; padding-block: var(--section-y); }
-  .approach--anim.is-static .why__head, .approach--anim.is-static .why__body {opacity: 1 !important; transform: none !important; }
-  @media (max-width: 900px) {
-  .approach--anim {height: auto; }
-  .approach--anim .why__sticky {position: static; height: auto; }
-  .approach--anim .why__stage {height: auto; display: block; padding-block: var(--section-y); }
-  .approach--anim .why__head {opacity: 1 !important; transform: none !important; max-width: none; }
-  .approach--anim .why__head h2 .wword {opacity: 1 !important; transform: none !important; }
-  .approach--anim .why__body {opacity: 1 !important; transform: none !important; }
-  }
+  /* Why section — no more pinned animation, normal layout always */
   .techwall ::selection {background: var(--coral); color: #fff; }
   .techwall ::-moz-selection {background: var(--coral); color: #fff; }
   .techwall .section-head {margin: 0 auto var(--space-8); }
@@ -660,42 +647,30 @@
   .lede-br {display: none; }
   }
   .btn--lg {padding: .82em 1.4em; font-size: .94rem; }
-  /* ===== Problem — scroll-pinned centre → left reveal ===== */
-  .prob {position: relative; height: 260vh; }  /* was 300vh — 25% faster scroll pacing through the pinned reveal */
-  .prob__sticky {position: sticky; top: 0; height: 100vh; display: flex; align-items: center; overflow: hidden; isolation: isolate; }
+  /* ===== Problem — normal section with reveal animation & merged hero glow ===== */
+  .prob {position: relative; overflow: visible; }
+  .prob__sticky {position: relative; isolation: isolate; }
   .prob__sticky::before {content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
     background:
-      radial-gradient(820px 620px at 28% 42%, rgba(52,191,240,.16), transparent 62%),
-      radial-gradient(760px 600px at 74% 64%, rgba(18,128,212,.13), transparent 62%),
-      radial-gradient(680px 520px at 60% 26%, rgba(240,97,31,.07), transparent 60%); }
-  .prob__stage {position: relative; z-index: 1; width: 100%; max-width: var(--content-max); height: 64vh; margin: 0 auto; }
-  .prob__head {position: absolute; top: 50%; left: var(--page-gutter); width: calc(47% - var(--page-gutter)); transform: translateY(-50%); text-align: left; will-change: transform, opacity; }
+      radial-gradient(820px 620px at 28% 42%, rgba(52, 191, 240, .16), transparent 62%), radial-gradient(760px 600px at 74% 64%, rgba(18, 128, 212, .13), transparent 62%), radial-gradient(680px 520px at 60% 26%, rgba(240, 97, 31, .07), transparent 60%);
+    filter: blur(30px); }
+  .prob__stage {position: relative; z-index: 1; width: 100%; max-width: var(--content-max); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); align-items: center; min-height: 70vh; padding-block: clamp(120px, 15vh, 200px); padding-inline: var(--page-gutter); }
+  .prob__head {text-align: left; }
   .prob__head .eyebrow {margin-bottom: var(--space-4); }
   .prob__head h2 {font-size: clamp(1.9rem, 1.4rem + 1.7vw, 2.65rem); line-height: 1.12; letter-spacing: -0.03em; color: var(--ink); }
-  .prob__head .pw {display: inline-block; opacity: 0; will-change: opacity, transform; }
-  .prob.is-static .prob__head .pw {opacity: 1 !important; transform: none !important; }
-  .prob__desc {position: absolute; top: 50%; right: var(--page-gutter); width: calc(46% - var(--page-gutter)); transform: translateY(-50%); opacity: 0; will-change: opacity, transform; }
+  .prob__head .pw {display: inline; }
+  .prob__desc {text-align: left; }
   .prob__desc p {font-size: 1.02rem; line-height: 1.6; color: var(--body); }
   .prob__desc p + p {margin-top: 1.05em; }
   .prob__desc p strong {color: var(--ink); font-weight: var(--w-semibold); }
-  /* stats live inside the right column — revealed in the same single transition */
+  /* stats live inside the right column */
   .prob__stats {display: flex; gap: var(--space-6); margin-top: var(--space-6); flex-wrap: wrap; }
   .ps {text-align: left; }
   .ps .n {font-size: clamp(1.9rem, 1.3rem + 1.5vw, 2.6rem); font-weight: var(--w-regular); line-height: 1; letter-spacing: -0.02em; color: var(--ink); }
   .ps .l {font-size: .8rem; color: var(--muted); margin-top: .4em; max-width: 16ch; }
   @media (max-width: 900px) {
-  .prob {height: auto; }
-  .prob__sticky {position: static; height: auto; display: block; padding-block: var(--section-y); overflow: visible; }
-  .prob__sticky::before {opacity: .7; }
-  .prob__stage {position: static; height: auto; max-width: var(--content-narrow); padding-inline: var(--page-gutter); }
-  .prob__head, .prob__desc {position: static; width: auto; max-width: none; transform: none !important; opacity: 1 !important; text-align: left; }
-  .prob__head .pw {opacity: 1 !important; transform: none !important; }
-  .prob__head {margin-bottom: var(--space-6); }
+  .prob__stage {grid-template-columns: 1fr; gap: var(--space-6); min-height: auto; padding-block: clamp(80px, 10vh, 120px); }
   }
-  .prob.is-static .prob__sticky {position: static; height: auto; display: block; padding-block: var(--section-y); overflow: visible; }
-  .prob.is-static .prob__stage {position: static; height: auto; max-width: var(--content-narrow); padding-inline: var(--page-gutter); }
-  .prob.is-static .prob__head, .prob.is-static .prob__desc {position: static; width: auto; max-width: none; transform: none !important; opacity: 1 !important; text-align: left; }
-  .prob.is-static .prob__head {margin-bottom: var(--space-6); }
   /* ===== Dental-tech consulting — pinned scroll reveal (visual leads, then slides right + shrinks; copy fades in left) ===== */
   .consult {position: relative; background: var(--ink-surface); color: var(--on-dark); }
   .consult ::selection {background: var(--sky); color: var(--ink-surface); }
