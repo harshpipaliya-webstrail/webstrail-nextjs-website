@@ -8,10 +8,10 @@ export default function PageScripts({ scripts }: { scripts: S[] }) {
   useEffect(() => {
     if (done.current) return;
     done.current = true;
-    // let cancelled = false;
+    let cancelled = false;
     (async () => {
       for (const s of scripts) {
-        // if (cancelled) return;
+        if (cancelled) return;
         await new Promise<void>((resolve) => {
           const el = document.createElement('script');
           if (s.src) {
@@ -26,13 +26,13 @@ export default function PageScripts({ scripts }: { scripts: S[] }) {
           }
         });
       }
-      // if (cancelled) return;
+      if (cancelled) return;
       // Original pages ran these inline at end of <body>; several listen for
       // DOMContentLoaded / load, which already fired — replay them so init runs.
       document.dispatchEvent(new Event('DOMContentLoaded'));
       window.dispatchEvent(new Event('load'));
     })();
-    // return () => { cancelled = true; };
+    return () => { cancelled = true; };
   }, [scripts]);
   return null;
 }
