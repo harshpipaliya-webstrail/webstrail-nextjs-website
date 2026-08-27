@@ -7,6 +7,7 @@ export type PageMeta = {
   slug: string[]; key: string; title: string; description: string;
   canonical: string; ogImage: string; jsonld: string[];
   hasStyles: boolean; hasScripts: boolean;
+  redirectTo?: string;
 };
 
 export const manifest: PageMeta[] = JSON.parse(
