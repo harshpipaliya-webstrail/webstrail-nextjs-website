@@ -22,18 +22,18 @@ Webstrail builds custom dental software: revenue cycle management (RCM), practic
 - [Dental Labs & Adjacent](https://webstrail.com/who-we-work-with/dental-labs/): Lab, teledentistry, and insurance software.
 
 ## Resources (guides & primers)
-- [How to reduce dental claim denials](https://webstrail.com/resources/how-to-reduce-dental-claim-denials/)
-- [How to choose a dental PMS integration partner](https://webstrail.com/resources/how-to-choose-a-dental-pms-integration-partner/)
-- [Open Dental vs Dentrix vs Eaglesoft: an integration guide](https://webstrail.com/resources/open-dental-vs-dentrix-vs-eaglesoft-integration-guide/)
-- [What is a DSO (Dental Support Organization)?](https://webstrail.com/resources/what-is-a-dso-dental-support-organization/)
-- [DSO KPI dashboard requirements](https://webstrail.com/resources/dso-kpi-dashboard-requirements/)
-- [HIPAA compliance checklist for dental software](https://webstrail.com/resources/hipaa-compliance-checklist-for-dental-software/)
-- [SOC 2 Type II for dental tech](https://webstrail.com/resources/soc-2-type-ii-for-dental-tech/)
-- [Dental revenue-cycle automation: a primer](https://webstrail.com/resources/dental-revenue-cycle-automation-primer/)
-- [Build vs. buy: custom dental software](https://webstrail.com/resources/build-vs-buy-dental-software/)
-- [What it costs to build custom dental software](https://webstrail.com/resources/cost-to-build-custom-dental-software/)
-- [Patient-experience software guide](https://webstrail.com/resources/patient-experience-software-guide/)
-- [Migrating dental data between PMS systems](https://webstrail.com/resources/migrating-dental-data-between-pms-systems/)
+- [How to reduce dental claim denials](https://webstrail.com/blog/how-to-reduce-dental-claim-denials/)
+- [How to choose a dental PMS integration partner](https://webstrail.com/blog/how-to-choose-a-dental-pms-integration-partner/)
+- [Open Dental vs Dentrix vs Eaglesoft: an integration guide](https://webstrail.com/blog/open-dental-vs-dentrix-vs-eaglesoft-integration-guide/)
+- [What is a DSO (Dental Support Organization)?](https://webstrail.com/blog/what-is-a-dso-dental-support-organization/)
+- [DSO KPI dashboard requirements](https://webstrail.com/blog/dso-kpi-dashboard-requirements/)
+- [HIPAA compliance checklist for dental software](https://webstrail.com/blog/hipaa-compliance-checklist-for-dental-software/)
+- [SOC 2 Type II for dental tech](https://webstrail.com/blog/soc-2-type-ii-for-dental-tech/)
+- [Dental revenue-cycle automation: a primer](https://webstrail.com/blog/dental-revenue-cycle-automation-primer/)
+- [Build vs. buy: custom dental software](https://webstrail.com/blog/build-vs-buy-dental-software/)
+- [What it costs to build custom dental software](https://webstrail.com/blog/cost-to-build-custom-dental-software/)
+- [Patient-experience software guide](https://webstrail.com/blog/patient-experience-software-guide/)
+- [Migrating dental data between PMS systems](https://webstrail.com/blog/migrating-dental-data-between-pms-systems/)
 
 ## Contact
 - [Contact Webstrail](https://webstrail.com/contact/): Free 30-minute discovery call, sales@webstrail.com, +1-630-931-8560.

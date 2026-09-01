@@ -14,5 +14,25 @@ export function generateMetadata({ params }: Props): Metadata {
 export default function Page({ params }: Props) {
   const p = bySlug(params.slug);
   if (!p) notFound();
+  if (p.redirectTo) {
+    return (
+      <html>
+        <head>
+          <meta httpEquiv="refresh" content={`0; url=${p.redirectTo}`} />
+          <link rel="canonical" href={`https://webstrail.com${p.redirectTo}`} />
+        </head>
+        <body>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `window.location.replace("${p.redirectTo}");`,
+            }}
+          />
+          <p>
+            Redirecting to <a href={p.redirectTo}>{p.redirectTo}</a>...
+          </p>
+        </body>
+      </html>
+    );
+  }
   return <PageView p={p} />;
 }

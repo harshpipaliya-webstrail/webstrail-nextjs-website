@@ -11,5 +11,42 @@ const nextConfig = {
   trailingSlash: true,
   reactStrictMode: true,
   images: { unoptimized: true },
+  async redirects() {
+    if (isProd) return [];
+    return [
+      {
+        source: '/resources/blogs',
+        destination: '/blog',
+        permanent: true,
+      },
+      {
+        source: '/resources/blogs/',
+        destination: '/blog/',
+        permanent: true,
+      },
+      {
+        source: '/resources/:slug',
+        destination: '/blog/:slug',
+        permanent: true,
+      },
+      {
+        source: '/resources/:slug/',
+        destination: '/blog/:slug/',
+        permanent: true,
+      },
+    ];
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/case-studies/',
+        destination: '/case-studies/index.html',
+      },
+      {
+        source: '/case-studies/:path*/',
+        destination: '/case-studies/:path*/index.html',
+      },
+    ];
+  },
 };
 export default nextConfig;
