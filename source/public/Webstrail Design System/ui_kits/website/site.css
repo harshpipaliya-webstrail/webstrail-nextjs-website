@@ -368,6 +368,10 @@
 .valcard h3 {font-family: var(--font-sans); font-weight: var(--w-semibold); font-size: 1.05rem; color: var(--ink); margin: 0 0 6px; }
 .valcard p {font-size: .93rem; line-height: 1.55; color: var(--body); }
 
+/* our culter */
+.culture__ic {width: 40px; height: 40px; border-radius: 9px; display: grid; place-items: center; background: color-mix(in srgb, var(--coral) 12%, transparent); color: var(--coral-deep); margin-bottom: var(--space-3); }
+.culture__ic svg {width: 20px; height: 20px; }
+
 /* ---------- interior CTA band ---------- */
 .ctaband {background: var(--ink-surface); color: var(--on-dark); }
 .ctaband .wrap {max-width: 860px; text-align: center; }

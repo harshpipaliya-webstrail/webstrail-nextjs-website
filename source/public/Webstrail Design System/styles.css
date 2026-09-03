@@ -374,3 +374,8 @@ img, svg, video { display: block; max-width: 100%; }
 .ws-grad-text {
   color: var(--coral);
 }
+
+/* GOOGLE APPOINMENT BUTTON */
+.qxCTlb {
+  font-weight: 400 !important;
+}

@@ -31,6 +31,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="" />
         <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet" media="print" />
         <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet" media="print" />
+        <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet" />
+        <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async />
         {/* fonts load async (display=swap); flip media once loaded so they never block first paint */}
         <script dangerouslySetInnerHTML={{ __html: "(function(){function f(){document.querySelectorAll('link[media=\"print\"][rel=\"stylesheet\"]').forEach(function(l){l.media='all'})}if(document.readyState!=='loading'){setTimeout(f,0)}else{document.addEventListener('DOMContentLoaded',f)}window.addEventListener('load',f)})();" }} id="fontSwap" />
         {children}

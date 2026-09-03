@@ -839,7 +839,57 @@
           <p class="eyebrow eyebrow--ondark">Contact Us</p>
           <p class="lead">A free 30-minute discovery call, no pitch — and an honest read on whether we're a fit.</p>
           <ul class="contact-ticks">
-            <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>A free 30-minute discovery call, no pitch.</li>
+            <li>
+              <span class="ck">
+                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+              </span>
+              A free 30-minute discovery call, no pitch.
+              <div id="calendar-button"></div>
+
+              <script>
+                window.addEventListener('load', function () {
+                  var target = document.getElementById('calendar-button');
+                
+                  if (!target) {
+                    console.log('Calendar target not found');
+                    return;
+                  }
+                
+                  // Prevent initialization more than once
+                  if (target.dataset.calendarLoaded === 'true') {
+                    console.log('Calendar already initialized');
+                    return;
+                  }
+                
+                  // Make sure Google Calendar is available
+                  if (
+                    typeof calendar === 'undefined' ||
+                    !calendar.schedulingButton
+                  ) {
+                    console.log('Google Calendar script not loaded');
+                    return;
+                  }
+                
+                  target.dataset.calendarLoaded = 'true';
+                
+                  calendar.schedulingButton.load({
+                    url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2RttdtksMdIndUh8EF1XsU76dWSYYH6W_skGpkOwaMCkPVyntwYtAh87gY2jwLRcTJbNMVQ6CQ?gv=true',
+                    color: '#F0611F',
+                    label: 'Book Your Slot',
+                    target: target
+                  });
+
+                  // Wait for Google Calendar to create the button
+                  setTimeout(function () {
+                    var button = target.querySelector('button');
+                  
+                    if (button) {
+                      button.id = 'book-appointment-btn';
+                    }
+                  }, 100);
+                });
+              </script>
+            </li>
             <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>An honest read on whether it's a fit.</li>
             <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>If it is, a clear next step — usually a sprint.</li>
           </ul>
