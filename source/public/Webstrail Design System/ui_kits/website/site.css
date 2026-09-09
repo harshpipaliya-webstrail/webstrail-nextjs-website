@@ -2332,13 +2332,11 @@ body:has(.mobile-menu.is-open) {
   right: -10px;
   height: 18px;
 }
-/* interior & homepage heroes must paint on first frame — never gate the LCP hero behind scroll-reveal */
-.hero .reveal,
+/* interior heroes must paint on first frame — never gate the LCP hero behind scroll-reveal */
 .csd-hero .reveal,
 .cs-hero .reveal,
 .lg-hero .reveal,
 .ihero .reveal,
-.hero .wrap > *,
 .csd-hero .wrap > *,
 .cs-hero .wrap > *,
 .lg-hero .wrap > * {

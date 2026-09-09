@@ -59,17 +59,16 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <link
           href="https://calendar.google.com/calendar/scheduling-button-script.css"
           rel="stylesheet"
-          media="print"
         />
         <script
           src="https://calendar.google.com/calendar/scheduling-button-script.js"
           async
         />
-        {/* stylesheets load async; flip media as soon as loaded so they never block first paint */}
+        {/* fonts load async (display=swap); flip media once loaded so they never block first paint */}
         <script
           dangerouslySetInnerHTML={{
             __html:
-              "(function(){function f(){document.querySelectorAll('link[media=\"print\"][rel=\"stylesheet\"]') .forEach(function(l){l.addEventListener('load',function(){l.media='all'});if(l.sheet){l.media='all'}})}f();if(document.readyState!=='loading'){setTimeout(f,0)}else{document.addEventListener('DOMContentLoaded',f)}window.addEventListener('load',f)})();",
+              "(function(){function f(){document.querySelectorAll('link[media=\"print\"][rel=\"stylesheet\"]').forEach(function(l){l.media='all'})}if(document.readyState!=='loading'){setTimeout(f,0)}else{document.addEventListener('DOMContentLoaded',f)}window.addEventListener('load',f)})();",
           }}
           id="fontSwap"
         />
