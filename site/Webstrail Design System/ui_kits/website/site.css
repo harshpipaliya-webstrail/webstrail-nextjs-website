@@ -54,16 +54,18 @@
 .nav__brand {display: flex; align-items: center; gap: .6em; }
 .nav__brand img {height: 30px; width: auto; }
 .nav__links {display: flex; align-items: center; gap: var(--space-6); }
-.nav__links a {font: var(--text-label); color: var(--ink-soft); }
+.nav__links a {font: var(--text-label); color: var(--ink-soft); white-space: nowrap; }
 .nav__links a:hover {color: var(--coral-deep); }
 .nav__faq {font: var(--text-label); color: var(--ink-soft); white-space: nowrap; }
 .nav__faq:hover {color: var(--coral-deep); }
 .nav__cta {display: flex; align-items: center; gap: var(--space-5); }
 .nav__burger {display: none; background: none; border: 0; cursor: pointer; padding: 8px; color: var(--ink); }
 .nav__burger .ic {width: 26px; height: 26px; }
-.mobile-menu {position: fixed; inset: 0; z-index: 55; background: var(--canvas); padding: 96px var(--page-gutter) var(--space-7); display: none; flex-direction: column; gap: var(--space-3); }
-.mobile-menu.is-open {display: flex; }
-.mobile-menu a {font: var(--text-title-md); color: var(--ink); padding: var(--space-3) 0; border-bottom: 1px solid var(--hairline); }
+.mobile-menu { position: fixed; inset: 0; height: 100vh; height: 100dvh; max-height: 100vh; max-height: 100dvh; z-index: 55; background: var(--canvas); padding: 88px var(--page-gutter) 48px; display: none; flex-direction: column; gap: var(--space-3); overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
+.mobile-menu.is-open { display: flex; }
+.mobile-menu > * { flex-shrink: 0; }
+.mobile-menu a { font: var(--text-title-md); color: var(--ink); padding: var(--space-3) 0; border-bottom: 1px solid var(--hairline); }
+body:has(.mobile-menu.is-open) { overflow: hidden; }
 /* ---------- hero ---------- */
 .hero {position: relative; padding-top: 132px; padding-bottom: var(--space-9); overflow: hidden; }
 .hero::before {content: ""; position: absolute; inset: 0; background: var(--wash-warm); pointer-events: none; z-index: 0; }
@@ -147,8 +149,15 @@
 .reveal-d2 {transition-delay: .20s; }
 .reveal-d3 {transition-delay: .30s; }
 /* ---------- responsive ---------- */
-@media (max-width: 1000px) {.hero__inner { grid-template-columns: 1fr; gap: var(--space-7); }
-  .mock { max-width: 560px; }
+@media (max-width: 1080px) {
+  .nav__left { gap: clamp(12px, 1.8vw, 24px); min-width: 0; }
+  .nav__links { gap: clamp(8px, 1.2vw, 16px); flex-wrap: nowrap; }
+  .nav__links a, .nav__item > a { font-size: 0.875rem; white-space: nowrap; flex-shrink: 0; }
+  .nav__row, .nav__cta { gap: clamp(8px, 1.2vw, 14px); }
+  .nav__cta .btn { flex-shrink: 0; white-space: nowrap; padding: 0.65em 1.1em; font-size: 0.875rem; }
+  .nav__faq { flex-shrink: 0; white-space: nowrap; }
+  .hero__inner { grid-template-columns: 1fr; gap: var(--space-7); }
+  .mock { max-width: 100%; }
   .sigband__grid { grid-template-columns: 1fr; }
   .cta__grid { grid-template-columns: 1fr; } }
 @media (max-width: 760px) {
@@ -190,8 +199,8 @@
    ============================================================ */
 
 /* ---------- IBM-style mega-menu ---------- */
-.nav__item {position: static; display: flex; align-items: center; }
-.nav__item > a {display: inline-flex; align-items: center; gap: .32em; }
+.nav__item {position: static; display: flex; align-items: center; flex-shrink: 0; white-space: nowrap; }
+.nav__item > a {display: inline-flex; align-items: center; gap: .32em; white-space: nowrap; flex-shrink: 0; }
 .nav__item > a .caret {width: 14px; height: 14px; opacity: .55; transition: transform var(--dur-base) var(--ease-out); }
 .nav__item:hover > a .caret, .nav__item:focus-within > a .caret {transform: rotate(180deg); opacity: .9; }
 .mega {position: fixed; left: 0; right: 0; top: 62px; z-index: 65;
@@ -580,3 +589,4 @@
 .rc-go {margin-top: var(--space-3); display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-sans); font-weight: var(--w-semibold); font-size: .88rem; color: var(--azure); }
 .rc-go svg {width: 14px; height: 14px; transition: transform var(--dur-base) var(--ease-out); }
 .relcard:hover .rc-go svg {transform: translateX(4px); }
+
