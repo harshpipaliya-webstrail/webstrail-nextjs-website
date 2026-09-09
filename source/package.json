@@ -6,7 +6,6 @@
     "extract": "node scripts/extract.mjs",
     "dev": "next dev -p 8124",
     "build": "next build",
-    "postbuild": "node scripts/sync-build.mjs",
     "start": "next start -p 8124"
   },
   "dependencies": {
