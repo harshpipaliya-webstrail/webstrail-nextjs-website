@@ -727,6 +727,9 @@ body:has(.mobile-menu.is-open) {
   }
 }
 @media (max-width: 1024px) {
+  .nav {
+    background: var(--canvas);
+  }
   .nav__links,
   .nav__cta .btn,
   .nav__faq {
