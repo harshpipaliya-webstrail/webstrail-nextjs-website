@@ -16,4 +16,4 @@ A ready-to-copy starting point for a Webstrail dental product-engineering homepa
 ## Edit points
 - Swap copy in `index.html` (keep the brand voice: sentence case, second person, specific, no hype words).
 - Replace the `.mock` dashboard / `.case__cover` solid-color panels with real product screenshots when available.
-- Logo lives at `../../assets/webstrail-logo.png` (repoint if your bind path differs).
+- Logo lives at `../../assets/webstrail-logo.webp` (repoint if your bind path differs).

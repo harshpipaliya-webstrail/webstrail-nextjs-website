@@ -107,7 +107,7 @@ Calm, confident, human. The signature move is **fade-and-rise on scroll** (opaci
 - **How it's used:** icons are inlined as SVG directly in markup (see `ui_kits/website/index.html` and the component cards). They appear in pillar badges (on solid color chips), checklist ticks (in `--success` green), the product mock sidebar, and form fields.
 - ⚠️ **Substitution:** no brand icon set was provided, so we use **Lucide** (MIT, `lucide.dev`) as the closest match. If you have an official set, drop the SVGs into `assets/icons/` and swap them in. For production React, pull `lucide-react` or load from CDN.
 - **Emoji / unicode glyphs:** not used as icons, anywhere. Status uses the `Badge` dot, not an emoji.
-- **Logo:** `assets/webstrail-logo.png` (four-color interlocking mark + near-black wordmark). Keep clearspace ≥ the mark's height. The art has **no light/reversed variant** — on dark/footer surfaces we currently invert it via CSS `filter`; please supply a proper white wordmark.
+- **Logo:** `assets/webstrail-logo.webp` (four-color interlocking mark + near-black wordmark). Keep clearspace ≥ the mark's height. The art has **no light/reversed variant** — on dark/footer surfaces we currently invert it via CSS `filter`; please supply a proper white wordmark.
 
 ---
 
