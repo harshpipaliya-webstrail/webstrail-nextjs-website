@@ -726,7 +726,7 @@ body:has(.mobile-menu.is-open) {
     grid-template-columns: 1fr;
   }
 }
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .nav {
     background: var(--canvas);
   }
