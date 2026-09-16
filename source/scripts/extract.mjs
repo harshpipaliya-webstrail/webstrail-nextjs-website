@@ -5,7 +5,7 @@ import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(__dirname, '..', '..', 'site');           // the static site root
+const ROOT = join(__dirname, '..', '..');           // the static site root
 const OUT = join(__dirname, '..', 'content');
 mkdirSync(OUT, { recursive: true });
 
@@ -26,7 +26,7 @@ function findIndexPages() {
         if (st.isDirectory()) walk(p);
         else if (e === 'index.html') {
           const rel = p.slice(ROOT.length + 1, -('index.html'.length + 1));
-          pages.push({ file: p, slug: rel.replace(/\\/g, '/').split('/') });
+          pages.push({ file: p, slug: rel.split('/') });
         }
       }
     };
