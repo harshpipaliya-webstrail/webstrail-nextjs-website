@@ -37,6 +37,7 @@ const nextConfig = {
     ];
   },
   async rewrites() {
+    if (isProd) return [];
     return [
       {
         source: '/case-studies/',

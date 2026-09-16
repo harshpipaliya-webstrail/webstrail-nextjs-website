@@ -967,6 +967,21 @@
  },
  {
   "slug": [
+   "careers"
+  ],
+  "key": "careers",
+  "title": "Careers Webstrail — Build software that powers the dental industry.",
+  "description": "Join Webstrail and help build innovative software solutions that power the dental industry. Explore career opportunities and grow with our product and engineering team.",
+  "canonical": "https://webstrail.com/careers/",
+  "ogImage": "https://webstrail.com/og-image.png",
+  "jsonld": [
+   "{\"@context\": \"https://schema.org\", \"@graph\": [{\"@type\": \"Organization\", \"@id\": \"https://webstrail.com/#org\", \"name\": \"Webstrail\", \"url\": \"https://webstrail.com/\", \"logo\": {\"@type\": \"ImageObject\", \"url\": \"https://webstrail.com/Webstrail%20Design%20System/assets/webstrail-logo.png\", \"width\": 512, \"height\": 512}, \"description\": \"The product and engineering partner for dental companies across North America — we design, build, and run custom dental software.\", \"sameAs\": [\"https://www.linkedin.com/company/webstrail/\", \"https://www.instagram.com/webstrail_llp/\", \"https://www.facebook.com/profile.php?id=61566441477160\", \"https://www.youtube.com/@webstrail\", \"https://x.com/webstrail/\"], \"contactPoint\": {\"@type\": \"ContactPoint\", \"contactType\": \"sales\", \"email\": \"sales@webstrail.com\", \"telephone\": \"+1-630-931-8560\"}}, {\"@type\": \"WebSite\", \"@id\": \"https://webstrail.com/#website\", \"url\": \"https://webstrail.com/\", \"name\": \"Webstrail\", \"publisher\": {\"@id\": \"https://webstrail.com/#org\"}}, {\"@type\": \"BreadcrumbList\", \"@id\": \"https://webstrail.com/careers/#breadcrumb\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Home\", \"item\": \"https://webstrail.com/\"}, {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Careers\", \"item\": \"https://webstrail.com/careers/\"}]}, {\"@type\": \"CollectionPage\", \"@id\": \"https://webstrail.com/careers/\", \"url\": \"https://webstrail.com/careers/\", \"name\": \"Careers at Webstrail\", \"description\": \"Explore career opportunities at Webstrail and join our product and engineering team building custom software solutions for dental companies.\", \"isPartOf\": {\"@id\": \"https://webstrail.com/#website\"}, \"publisher\": {\"@id\": \"https://webstrail.com/#org\"}, \"breadcrumb\": {\"@id\": \"https://webstrail.com/careers/#breadcrumb\"}}]}"
+  ],
+  "hasStyles": true,
+  "hasScripts": true
+ },
+ {
+  "slug": [
    "resources",
    "blogs"
   ],
