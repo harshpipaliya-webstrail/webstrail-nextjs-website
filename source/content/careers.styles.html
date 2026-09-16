@@ -56,6 +56,18 @@
     color: #ffffff;
   }
 
+  /* NO Jobs */
+  #no-jobs-container {
+    display: none;
+    background: var(--canvas, #ffffff);
+    border: 1px solid var(--hairline-strong, #e2e8f0);
+    border-radius: 12px;
+    padding: clamp(20px, 3.5vw, 32px);
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    text-align: center;
+  }
+
   /* ------------------------------------------------------------- */
   /* Job Cards                                                     */
   /* ------------------------------------------------------------- */

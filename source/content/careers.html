@@ -140,217 +140,46 @@
           <p>Browse our current open roles below. Click any role to view detailed responsibilities or apply directly.</p>
         </div>
 
-        <div class="careers-filter reveal">
-          <button class="careers-filter__btn is-active" data-filter="all">All Roles <span class="count">4</span></button>
-          <button class="careers-filter__btn" data-filter="engineering">Engineering <span class="count">2</span></button>
-          <button class="careers-filter__btn" data-filter="product">Product &amp; Design <span class="count">1</span></button>
-          <button class="careers-filter__btn" data-filter="infrastructure">Infrastructure &amp; Security <span class="count">1</span></button>
+        <div class="careers-filter reveal" id="dynamic-filters" style="display:none;"></div>
+<div class="careers-filter reveal" id="skeleton-filters" style="display:flex; gap: 8px;">
+  <button class="careers-filter__btn is-active" style="width: 100px; height: 38px; background: #e2e8f0; border-color: #e2e8f0; pointer-events: none;"></button>
+  <button class="careers-filter__btn" style="width: 120px; height: 38px; background: #e2e8f0; border-color: #e2e8f0; pointer-events: none;"></button>
+  <button class="careers-filter__btn" style="width: 150px; height: 38px; background: #e2e8f0; border-color: #e2e8f0; pointer-events: none;"></button>
+</div>
+
+        <div class="role-grid reveal" id="dynamic-roles" style="display:none;"></div>
+        <div class="reveal" id="no-jobs-container">
+          <h2>No Jobs Available</h2>
+          <p>We don't have any open positions at the moment. Check back soon or apply as General Application for future openings!</p>
         </div>
-
-        <div class="role-grid reveal">
-          <!-- Role 1 -->
-          <div class="role-card" data-category="engineering">
-            <div class="role-card__header">
-              <div>
-                <h3 class="role-card__title">Senior Full-Stack Engineer (Dental Platforms)</h3>
-                <div class="role-card__meta">
-                  <span class="role-card__badge">Full-time</span>
-                  <span class="role-card__loc">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                    Remote (US / North America)
-                  </span>
-                  <span>·</span>
-                  <span>Engineering</span>
-                </div>
-              </div>
-            </div>
-            <p class="role-card__desc">Lead front-end and back-end development for custom DSO management portals, patient experience applications, and analytics dashboards.</p>
-            <div class="role-card__tags">
-              <span class="role-card__tag">TypeScript</span>
-              <span class="role-card__tag">React / Next.js</span>
-              <span class="role-card__tag">Node.js</span>
-              <span class="role-card__tag">PostgreSQL</span>
-              <span class="role-card__tag">REST / GraphQL</span>
-            </div>
-            <div class="role-card__actions">
-              <button class="btn btn--sm btn--secondary toggle-details" data-target="details-1">
-                <span>View Role Details</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="caret-icon"><path d="m6 9 6 6 6-6"/></svg>
-              </button>
-              <a class="btn btn--sm btn--brand apply-btn" href="#apply" data-role="Senior Full-Stack Engineer (Dental Platforms)">
-                Apply Now
-                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-              </a>
-            </div>
-            <div class="role-details" id="details-1">
-              <h4>What You'll Do</h4>
-              <ul>
-                <li>Architect clean, accessible React/Next.js client applications and resilient Node.js microservices.</li>
-                <li>Collaborate closely with product leaders to translate complex DSO and clinical workflows into simple user interfaces.</li>
-                <li>Implement automated unit, integration, and E2E testing to maintain strict reliability standards.</li>
-                <li>Participate in system design discussions and mentor mid-level engineers across engineering pods.</li>
-              </ul>
-              <h4>Requirements</h4>
-              <ul>
-                <li>5+ years of software engineering experience shipping production web applications.</li>
-                <li>Deep proficiency in TypeScript, React, Next.js, and modern CSS architecture.</li>
-                <li>Experience designing relational database schemas (PostgreSQL / MySQL) and building secure REST / GraphQL APIs.</li>
-                <li>Familiarity with HIPAA compliance requirements or SOC 2 standards is a big plus.</li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Role 2 -->
-          <div class="role-card" data-category="engineering">
-            <div class="role-card__header">
-              <div>
-                <h3 class="role-card__title">Lead PMS Integration Engineer</h3>
-                <div class="role-card__meta">
-                  <span class="role-card__badge">Full-time</span>
-                  <span class="role-card__loc">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                    Remote (US / North America)
-                  </span>
-                  <span>·</span>
-                  <span>Engineering</span>
-                </div>
-              </div>
-            </div>
-            <p class="role-card__desc">Build, optimize, and maintain bidirectional data sync engines with practice management systems (Open Dental, Dentrix, Eaglesoft, Denticon) and dental clearinghouses.</p>
-            <div class="role-card__tags">
-              <span class="role-card__tag">C# / .NET</span>
-              <span class="role-card__tag">Node.js / TypeScript</span>
-              <span class="role-card__tag">SQL Server / MySQL</span>
-              <span class="role-card__tag">EDI / Clearinghouses</span>
-            </div>
-            <div class="role-card__actions">
-              <button class="btn btn--sm btn--secondary toggle-details" data-target="details-2">
-                <span>View Role Details</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="caret-icon"><path d="m6 9 6 6 6-6"/></svg>
-              </button>
-              <a class="btn btn--sm btn--brand apply-btn" href="#apply" data-role="Lead PMS Integration Engineer">
-                Apply Now
-                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-              </a>
-            </div>
-            <div class="role-details" id="details-2">
-              <h4>What You'll Do</h4>
-              <ul>
-                <li>Own Webstrail's core integration framework connecting Cloud &amp; On-Premise Practice Management Systems.</li>
-                <li>Develop real-time eligibility checking, automated claims submission, and payment write-back modules.</li>
-                <li>Ensure data integrity, encryption, and zero-loss syncing across distributed multi-location groups.</li>
-                <li>Resolve API schema variations and database access patterns across legacy and modern PMS platforms.</li>
-              </ul>
-              <h4>Requirements</h4>
-              <ul>
-                <li>4+ years of hands-on experience in backend engineering and database integration.</li>
-                <li>Demonstrated expertise with SQL, C#, Node.js, and API rate limiting / queuing systems (Redis / RabbitMQ).</li>
-                <li>Direct experience with Open Dental API, Dentrix Developer Program, or X12 EDI (270/271, 837, 835) is highly desirable.</li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Role 3 -->
-          <div class="role-card" data-category="product">
-            <div class="role-card__header">
-              <div>
-                <h3 class="role-card__title">Senior Product Manager (Dental RCM &amp; Growth)</h3>
-                <div class="role-card__meta">
-                  <span class="role-card__badge">Full-time</span>
-                  <span class="role-card__loc">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                    Remote (US / North America)
-                  </span>
-                  <span>·</span>
-                  <span>Product</span>
-                </div>
-              </div>
-            </div>
-            <p class="role-card__desc">Drive product strategy, user discovery, and roadmap execution for our revenue cycle management and patient growth software products.</p>
-            <div class="role-card__tags">
-              <span class="role-card__tag">Product Strategy</span>
-              <span class="role-card__tag">User Research</span>
-              <span class="role-card__tag">Dental Workflows</span>
-              <span class="role-card__tag">Agile / Scrum</span>
-            </div>
-            <div class="role-card__actions">
-              <button class="btn btn--sm btn--secondary toggle-details" data-target="details-3">
-                <span>View Role Details</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="caret-icon"><path d="m6 9 6 6 6-6"/></svg>
-              </button>
-              <a class="btn btn--sm btn--brand apply-btn" href="#apply" data-role="Senior Product Manager (Dental RCM & Growth)">
-                Apply Now
-                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-              </a>
-            </div>
-            <div class="role-details" id="details-3">
-              <h4>What You'll Do</h4>
-              <ul>
-                <li>Partner directly with DSOs, practice coaching executives, and engineering leads to define feature scopes.</li>
-                <li>Translate complex clinical and billing problems into clear user stories, wireframes, and acceptance criteria.</li>
-                <li>Conduct customer interviews, analyze product usage metrics, and continuously prioritize backlog items.</li>
-                <li>Lead sprint planning, product demos, and release announcements.</li>
-              </ul>
-              <h4>Requirements</h4>
-              <ul>
-                <li>4+ years of product management experience shipping SaaS products.</li>
-                <li>Background in healthcare, dental, or fintech SaaS applications.</li>
-                <li>Strong analytical mindset with excellent verbal and written communication skills.</li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Role 4 -->
-          <div class="role-card" data-category="infrastructure">
-            <div class="role-card__header">
-              <div>
-                <h3 class="role-card__title">Senior DevOps &amp; Security Engineer (SOC 2 / HIPAA)</h3>
-                <div class="role-card__meta">
-                  <span class="role-card__badge">Full-time</span>
-                  <span class="role-card__loc">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                    Remote (US / North America)
-                  </span>
-                  <span>·</span>
-                  <span>Infrastructure</span>
-                </div>
-              </div>
-            </div>
-            <p class="role-card__desc">Maintain our cloud infrastructure, automated CI/CD pipelines, and continuous SOC 2 Type II / HIPAA security compliance posture.</p>
-            <div class="role-card__tags">
-              <span class="role-card__tag">AWS / Cloud</span>
-              <span class="role-card__tag">Docker / K8s</span>
-              <span class="role-card__tag">Terraform</span>
-              <span class="role-card__tag">HIPAA Security</span>
-              <span class="role-card__tag">SOC 2 Type II</span>
-            </div>
-            <div class="role-card__actions">
-              <button class="btn btn--sm btn--secondary toggle-details" data-target="details-4">
-                <span>View Role Details</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="caret-icon"><path d="m6 9 6 6 6-6"/></svg>
-              </button>
-              <a class="btn btn--sm btn--brand apply-btn" href="#apply" data-role="Senior DevOps & Security Engineer">
-                Apply Now
-                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-              </a>
-            </div>
-            <div class="role-details" id="details-4">
-              <h4>What You'll Do</h4>
-              <ul>
-                <li>Manage AWS infrastructure using Infrastructure as Code (Terraform / CloudFormation).</li>
-                <li>Optimize automated CI/CD deployment pipelines, monitoring systems (Datadog / CloudWatch), and alerting.</li>
-                <li>Ensure continuous HIPAA compliance, audit logging, vulnerability scanning, and SOC 2 Type II security controls.</li>
-                <li>Conduct routine security reviews, incident response drills, and access management reviews.</li>
-              </ul>
-              <h4>Requirements</h4>
-              <ul>
-                <li>5+ years in DevOps, Cloud Engineering, or Site Reliability Engineering.</li>
-                <li>Deep expertise in AWS services (EKS, ECS, RDS, IAM, KMS, VPC, CloudTrail).</li>
-                <li>Strong knowledge of container security, secret management, and compliance automation.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+<div class="role-grid reveal" id="skeleton-roles" style="display:grid;">
+  <style>
+    @keyframes skeleton-pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.5; }
+      100% { opacity: 1; }
+    }
+    .sk-box { background: #e2e8f0; border-radius: 4px; animation: skeleton-pulse 1.5s infinite; }
+  </style>
+  <div class="role-card">
+    <div class="sk-box" style="height: 28px; width: 60%; margin-bottom: 12px;"></div>
+    <div class="sk-box" style="height: 16px; width: 40%; margin-bottom: 24px;"></div>
+    <div class="sk-box" style="height: 60px; width: 100%; margin-bottom: 24px;"></div>
+    <div style="display: flex; gap: 8px;">
+      <div class="sk-box" style="height: 28px; width: 80px;"></div>
+      <div class="sk-box" style="height: 28px; width: 100px;"></div>
+    </div>
+  </div>
+  <div class="role-card">
+    <div class="sk-box" style="height: 28px; width: 60%; margin-bottom: 12px;"></div>
+    <div class="sk-box" style="height: 16px; width: 40%; margin-bottom: 24px;"></div>
+    <div class="sk-box" style="height: 60px; width: 100%; margin-bottom: 24px;"></div>
+    <div style="display: flex; gap: 8px;">
+      <div class="sk-box" style="height: 28px; width: 80px;"></div>
+      <div class="sk-box" style="height: 28px; width: 100px;"></div>
+    </div>
+  </div>
+</div>
       </div>
     </section>
 
@@ -393,10 +222,6 @@
                 <label for="c-role">Position Applying For *</label>
                 <select id="c-role" name="role" required>
                   <option value="">Select an open position...</option>
-                  <option value="Senior Full-Stack Engineer (Dental Platforms)">Senior Full-Stack Engineer (Dental Platforms)</option>
-                  <option value="Lead PMS Integration Engineer">Lead PMS Integration Engineer</option>
-                  <option value="Senior Product Manager (Dental RCM & Growth)">Senior Product Manager (Dental RCM & Growth)</option>
-                  <option value="Senior DevOps & Security Engineer">Senior DevOps & Security Engineer</option>
                   <option value="General Application / Future Roles">General Application / Future Roles</option>
                 </select>
                 <span class="field__error">Please select a position.</span>
