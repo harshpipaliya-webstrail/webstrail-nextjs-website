@@ -1,15 +1,7 @@
 import type { ReactNode } from "react";
 import type { Metadata, Viewport } from "next";
-import { readFileSync } from "fs";
-import { join } from "path";
 
 const V = "?v=20260723b";
-
-// Inlined design-system tokens to eliminate render-blocking HTTP request
-const dsStylesCss = readFileSync(
-  join(process.cwd(), "public/Webstrail Design System/styles.css"),
-  "utf8"
-);
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://webstrail.com"),
@@ -34,14 +26,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body>
-        {/* Design-system CSS tokens inlined for 0ms render-blocking delay */}
-        <style dangerouslySetInnerHTML={{ __html: dsStylesCss }} />
-
-        {/* Site CSS preloaded & loaded synchronously to prevent FOUC / header layout flash */}
+        {/* Design-system CSS (served from public, identical to the static site) */}
         <link
-          rel="preload"
-          as="style"
-          href={"/Webstrail%20Design%20System/ui_kits/website/site.css" + V}
+          rel="stylesheet"
+          href={"/Webstrail%20Design%20System/styles.css" + V}
         />
         <link
           rel="stylesheet"
@@ -71,8 +59,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <link
           href="https://calendar.google.com/calendar/scheduling-button-script.css"
           rel="stylesheet"
-          media="print"
-        /><script
+        />
+        <script
           src="https://calendar.google.com/calendar/scheduling-button-script.js"
           async
         />
