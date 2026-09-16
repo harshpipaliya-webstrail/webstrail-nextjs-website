@@ -10,7 +10,7 @@ const OUT = join(__dirname, '..', 'content');
 mkdirSync(OUT, { recursive: true });
 
 // Only these top-level areas are rendered by Next (trailing-slash dir pages).
-const AREAS = ['services', 'who-we-work-with', 'resources', 'blog', 'about'];
+const AREAS = ['services', 'who-we-work-with', 'resources', 'blog', 'about', 'careers'];
 
 function findIndexPages() {
   const pages = [];

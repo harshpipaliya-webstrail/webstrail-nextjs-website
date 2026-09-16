@@ -1,0 +1,231 @@
+<style>
+  :root { --content-max: 1640px; --page-gutter: clamp(18px, 2.4vw, 40px);
+    --radius-xs:2px;--radius-sm:3px;--radius-md:4px;--radius-lg:6px;--radius-xl:8px;--radius-2xl:10px;--radius-pill:999px;
+    --font-display:"TT Hoves Pro","General Sans","DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --font-sans:"TT Hoves Pro","General Sans","DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --track-display:-0.028em; }
+  .nav__brand img { height: 42px; }
+
+  /* ------------------------------------------------------------- */
+  /* Role Categories Filter                                        */
+  /* ------------------------------------------------------------- */
+  .careers-filter {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: var(--space-4) 0 var(--space-6);
+  }
+  .careers-filter__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--hairline-strong, #cbd5e1);
+    background: var(--surface-0, #ffffff);
+    color: var(--ink-soft, #475569);
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+  }
+  .careers-filter__btn:hover {
+    border-color: var(--azure, #1280D4);
+    color: var(--azure, #1280D4);
+    background: rgba(18, 128, 212, 0.04);
+  }
+  .careers-filter__btn.is-active {
+    background: var(--azure, #1280D4);
+    color: #ffffff;
+    border-color: var(--azure, #1280D4);
+    box-shadow: 0 4px 14px rgba(18, 128, 212, 0.28);
+  }
+  .careers-filter__btn .count {
+    background: var(--surface-2, #f1f5f9);
+    color: var(--ink-muted, #64748b);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+  }
+  .careers-filter__btn.is-active .count {
+    background: rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+  }
+
+  /* ------------------------------------------------------------- */
+  /* Job Cards                                                     */
+  /* ------------------------------------------------------------- */
+  .role-grid { display: flex; flex-direction: column; gap: 24px; }
+  .role-card {
+    background: var(--canvas, #ffffff);
+    border: 1px solid var(--hairline-strong, #e2e8f0);
+    border-radius: 12px;
+    padding: clamp(20px, 3.5vw, 32px);
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  }
+  .role-card:hover {
+    border-color: var(--azure, #1280D4);
+    box-shadow: 0 8px 28px rgba(18, 128, 212, 0.08);
+    transform: translateY(-2px);
+  }
+  .role-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+  }
+  .role-card__title {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--ink, #0f172a);
+    margin: 0 0 8px 0;
+    letter-spacing: var(--track-display);
+  }
+  .role-card__meta {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 0.88rem;
+    color: var(--ink-soft, #475569);
+    flex-wrap: wrap;
+  }
+  .role-card__badge {
+    background: rgba(18, 128, 212, 0.1);
+    color: var(--azure, #1280D4);
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: var(--radius-pill);
+    font-size: 0.82rem;
+  }
+  .role-card__desc {
+    color: var(--body, #334155);
+    margin-bottom: 20px;
+    line-height: 1.65;
+    font-size: 1rem;
+  }
+  .role-card__tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+  .role-card__tag {
+    background: var(--surface-2, #f1f5f9);
+    color: var(--ink-soft, #475569);
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    border: 1px solid var(--hairline-soft, #e2e8f0);
+  }
+  .role-card__actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .role-card__loc {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .role-details {
+    display: none;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px dashed var(--hairline-strong, #cbd5e1);
+  }
+  .role-details.is-open { display: block; }
+  .role-details h4 {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 18px 0 10px 0;
+    color: var(--ink, #0f172a);
+  }
+  .role-details ul {
+    padding-left: 20px;
+    margin: 0 0 16px 0;
+    color: var(--body, #334155);
+    line-height: 1.65;
+  }
+  .role-details ul li { margin-bottom: 8px; }
+
+  /* ------------------------------------------------------------- */
+  /* Form Field, Select & File Upload Parity & Validation          */
+  /* ------------------------------------------------------------- */
+  .field select {
+    width: 100%;
+    font: var(--text-body-md);
+    font-family: var(--font-sans);
+    color: var(--ink, #0f172a);
+    background-color: var(--canvas, #ffffff);
+    border: 1px solid var(--hairline-strong, #cbd5e1);
+    border-radius: var(--radius-md, 6px);
+    padding: 0.75rem 2.5rem 0.75rem 0.9rem;
+    transition: var(--t-colors), box-shadow var(--dur-fast);
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23475569' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.9rem center;
+    background-size: 16px;
+    cursor: pointer;
+    box-sizing: border-box;
+  }
+  .field input[type="file"] {
+    padding: 0.55rem 0.9rem;
+    background: var(--canvas, #ffffff);
+    cursor: pointer;
+  }
+  .field input[type="file"]::file-selector-button {
+    background: var(--surface-2, #f1f5f9);
+    color: var(--ink, #0f172a);
+    border: 1px solid var(--hairline-strong, #cbd5e1);
+    border-radius: var(--radius-sm, 4px);
+    padding: 5px 14px;
+    font-weight: 600;
+    font-size: 0.88rem;
+    margin-right: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .field input[type="file"]::file-selector-button:hover {
+    background: var(--azure, #1280D4);
+    color: #ffffff;
+    border-color: var(--azure, #1280D4);
+  }
+  .field select:focus {
+    outline: none;
+    border-color: var(--azure, #1280D4);
+    box-shadow: var(--focus-ring, 0 0 0 3px rgba(18, 128, 212, 0.2));
+  }
+
+  /* Validation Error Styling */
+  .field.has-error input,
+  .field.has-error select,
+  .field.has-error textarea {
+    border-color: #e53e3e !important;
+    box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.2) !important;
+    background-color: #fff5f5 !important;
+  }
+  .field__error {
+    color: #e53e3e;
+    font-size: 0.82rem;
+    font-weight: 600;
+    display: none;
+    margin-top: 4px;
+  }
+  .field.has-error .field__error {
+    display: block;
+  }
+</style>
