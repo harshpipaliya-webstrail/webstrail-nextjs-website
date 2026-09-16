@@ -203,29 +203,34 @@
           <form class="contact-card__form" id="careerForm" novalidate enctype="multipart/form-data">
             <div class="form__two">
               <div class="field">
-                <label for="c-name">Full Name *</label>
-                <input id="c-name" name="name" autocomplete="name" required placeholder="Your full name" />
-                <span class="field__error">Full name is required.</span>
+                <label for="c-name">First Name *</label>
+                <input id="c-name" name="name" autocomplete="name" required placeholder="Your first name" />
+                <span class="field__error">First name is required.</span>
               </div>
+              <div class="field">
+                <label for="c-lname">Last Name *</label>
+                <input id="c-lname" name="lname" autocomplete="family-name" required placeholder="Your last name" />
+                <span class="field__error">Last name is required.</span>
+              </div>
+            </div>
+            <div class="form__two">
               <div class="field">
                 <label for="c-email">Work Email *</label>
                 <input id="c-email" name="email" type="email" autocomplete="email" required placeholder="you@example.com" />
                 <span class="field__error">A valid email address is required.</span>
               </div>
-            </div>
-            <div class="form__two">
               <div class="field">
                 <label for="c-phone">Phone Number</label>
                 <input id="c-phone" name="phone" type="tel" autocomplete="tel" placeholder="+1 (555) 000-0000" />
               </div>
-              <div class="field">
-                <label for="c-role">Position Applying For *</label>
-                <select id="c-role" name="role" required>
-                  <option value="">Select an open position...</option>
-                  <option value="General Application / Future Roles">General Application / Future Roles</option>
-                </select>
-                <span class="field__error">Please select a position.</span>
-              </div>
+            </div>
+            <div class="field">
+              <label for="c-role">Position Applying For *</label>
+              <select id="c-role" name="role" required>
+                <option value="">Select an open position...</option>
+                <option value="General Application / Future Roles">General Application / Future Roles</option>
+              </select>
+              <span class="field__error">Please select a position.</span>
             </div>
             <div class="form__two">
               <div class="field">
