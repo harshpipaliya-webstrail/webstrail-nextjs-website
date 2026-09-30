@@ -3,6 +3,53 @@
     --radius-xs:2px;--radius-sm:3px;--radius-md:4px;--radius-lg:6px;--radius-xl:8px;--radius-2xl:10px;--radius-pill:6px;
     --font-display:"TT Hoves Pro","General Sans","DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
     --font-sans:"TT Hoves Pro","General Sans","DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    --track-display:-0.028em; }
+    --track-display:-0.028em;
+    --logo-grad: linear-gradient(96deg, #1280d4 0%, #34bff0 24%, #e0a82e 62%, #f0611f 100%);
+  }
   .nav__brand img { height: 42px; }
+  .fun__container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    margin-top: var(--space-6);
+  }
+
+  .fun__container .fun {
+    position: relative;
+  }
+
+  .fun__container .fun img {
+    width: 60%;
+    border-radius: var(--radius-2xl);
+  }
+
+  .fun__container .fun.right img {
+    margin-left: auto;
+  }
+
+  .fun__container .fun .fun__title__container {
+    position: absolute;
+    background-color: var(--surface-1);
+    top: 50%;
+    transform: translateY(-50%);
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    border-radius: var(--radius-xl);
+  }
+  
+  .fun__container .fun.left .fun__title__container {
+    left: calc(60% - 100px);
+  }
+
+  .fun__container .fun.right .fun__title__container {
+    right: calc(60% - 100px);
+  }
+
+  .fun__title__container .title {
+    font-size: 48px;
+    font-weight: 500;
+  }
 </style>
