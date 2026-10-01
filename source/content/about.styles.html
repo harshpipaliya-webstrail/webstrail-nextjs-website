@@ -16,15 +16,46 @@
 
   .fun__container .fun {
     position: relative;
+    opacity: 0;
+    transform: translateY(32px) scale(0.97);
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+  }
+
+  .fun__container .fun.is-in {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  .fun__container .fun.left {
+    transition-delay: 0.1s;
+  }
+
+  .fun__container .fun.right {
+    transition-delay: 0.25s;
   }
 
   .fun__container .fun img {
     width: 60%;
     border-radius: var(--radius-2xl);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
   }
 
   .fun__container .fun.right img {
     margin-left: auto;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fun__container .fun {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+    .fun__container .fun img {
+      transform: none !important;
+      transition: none !important;
+    }
   }
 
   .fun__container .fun .fun__title__container {
