@@ -7,7 +7,8 @@
     "dev": "next dev -p 8124",
     "build": "next build",
     "postbuild": "node scripts/sync-build.mjs",
-    "start": "next start -p 8124"
+    "start": "next start -p 8124",
+    "production": "npx serve@latest out"
   },
   "dependencies": {
     "next": "14.2.15",
