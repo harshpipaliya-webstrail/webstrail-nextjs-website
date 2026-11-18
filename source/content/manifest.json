@@ -1174,5 +1174,18 @@
   "hasStyles": false,
   "hasScripts": false,
   "redirectTo": "/blog/what-is-a-dso-dental-support-organization/"
+ },
+ {
+  "slug": [
+   "blogs"
+  ],
+  "key": "blogs",
+  "title": "Blogs | Webstrail",
+  "description": "Guides, primers, and case studies on custom dental software — revenue cycle, PMS integrations, HIPAA, SOC 2, DSO growth, and build vs. buy.",
+  "canonical": "https://webstrail.com/blogs/",
+  "ogImage": "https://webstrail.com/og-image.png",
+  "jsonld": [],
+  "hasStyles": true,
+  "hasScripts": true
  }
 ]
