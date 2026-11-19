@@ -15,12 +15,12 @@
   "src": "/Webstrail%20Design%20System/ui_kits/website/reveal.js?v=20260723b"
  },
  {
-  "src": "/blogs-static.js?v=1"
+  "src": "/blogs-static.js?v=3"
  },
  {
-  "src": "/blogs-data.js?v=1"
+  "src": "/blogs-data.js?v=3"
  },
  {
-  "src": "/related-blogs-merged.js?v=1"
+  "src": "/related-blogs-merged.js?v=3"
  }
 ]

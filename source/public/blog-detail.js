@@ -1,4 +1,4 @@
-/* /blog/<slug> — single blog view. Everything is driven by the blogs data (API / Google Sheet). */
+/* /blog/<slug> — single blog view. Everything is driven by the blogs data (blogs API). */
 (function () {
   if (window.__blogDetailInit) return;
   window.__blogDetailInit = true;
@@ -15,7 +15,7 @@
   }
 
   // ---- dates -------------------------------------------------------------
-  // Sheet dates look like M/D/YYYY (Google Sheets, US); ISO dates are also handled.
+  // API dates look like M/D/YYYY; ISO dates are also handled.
   function parseDate(s) {
     s = (s || '').trim();
     if (!s) return null;

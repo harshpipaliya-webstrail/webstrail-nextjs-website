@@ -4,8 +4,8 @@ import type { Metadata } from 'next';
 import PageScripts from './PageScripts';
 import { getDynamicBlogs } from '@/lib/dynamic-blogs';
 
-// Template page for blogs that come from the Google Sheet. The blog itself is rendered in the
-// browser (public/blog-detail.js); the <head> metadata is prerendered when the sheet is readable.
+// Template page for blogs that come from the blogs API. The blog itself is rendered in the
+// browser (public/blog-detail.js); the <head> metadata is prerendered when the API is reachable.
 const T = join(process.cwd(), 'templates');
 
 export function DynamicBlogView() {

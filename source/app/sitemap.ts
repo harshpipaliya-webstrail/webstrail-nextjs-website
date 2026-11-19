@@ -191,7 +191,7 @@ function getAppRoutes(): MetadataRoute.Sitemap {
   return pages;
 }
 
-// Blogs from the Google Sheet: same URL shape as the static blogs (/blog/<slug>/).
+// Blogs from the API: same URL shape as the static blogs (/blog/<slug>/).
 // lastModified = updatedOn, else createdOn (falls back to now if neither is set).
 async function getDynamicBlogPages(): Promise<MetadataRoute.Sitemap> {
   const blogs = await getDynamicBlogs();

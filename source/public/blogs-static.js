@@ -2,7 +2,7 @@
  * REGISTRY OF STATIC BLOGS  (the hand-built pages in content/blog__<slug>.html)
  *
  * This is the one place that lists the static blogs. It feeds the /blog index, the Related
- * Blogs lists (same category), and the blog search on /resources. Dynamic blogs (Google Sheet)
+ * Blogs lists (same category), and the blog search on /resources. Dynamic blogs (API)
  * are merged with this list automatically and are shown exactly like these.
  *
  * ADD a static blog:   1) create content/blog__<slug>.html (+ .scripts.json / .styles.html,
@@ -10,7 +10,7 @@
  *                         content/blog.html if you want it in the server-rendered /blog HTML.
  * UPDATE a static blog: edit its entry here (title / category / description) and keep it in sync
  *                         with its page.
- * Order here = order on the /blog page. A sheet row with the same slug as an entry here is
+ * Order here = order on the /blog page. An API blog with the same slug as an entry here is
  * ignored (the static page wins).
  * ------------------------------------------------------------------------------------------ */
 window.WEBSTRAIL_STATIC_BLOGS = [

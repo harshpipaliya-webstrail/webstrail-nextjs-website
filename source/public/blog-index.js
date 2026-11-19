@@ -1,5 +1,5 @@
 /* /blog index.
- * The 12 static cards are server-rendered and always visible. Sheet blogs are added to the SAME
+ * The 12 static cards are server-rendered and always visible. API blogs are added to the SAME
  * grid with identical cards: the first 3 are shown, the rest sit behind a "Show more" button.
  * While the data loads, 3 skeleton cards sit after the static ones. The "Showing X of Y blogs"
  * line and the button only appear after the data has loaded successfully. */
@@ -9,8 +9,8 @@
   if (!B || !grid || grid.getAttribute('data-merged')) return;
   grid.setAttribute('data-merged', '1');
 
-  var FIRST = 3;   // sheet blogs visible right away
-  var STEP = 6;    // sheet blogs revealed per "Show more" click
+  var FIRST = 3;   // API blogs visible right away
+  var STEP = 6;    // API blogs revealed per "Show more" click
   var countEl = document.getElementById('csCount');
 
   var have = {};
@@ -34,7 +34,7 @@
       '<path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span></a>';
   }
 
-  // Only the sheet source matters here (static blogs are already on the page).
+  // Only the API blogs matter here (static blogs are already on the page).
   B.load().then(function (dyn) {
     var seen = {};
     var list = dyn.filter(function (b) {
@@ -52,7 +52,7 @@
     }
 
     var total = staticCount + cards.length;
-    var shown = 0; // sheet cards visible
+    var shown = 0; // API cards visible
     var wrap = null;
 
     function update() {
@@ -76,7 +76,7 @@
     }
     reveal(FIRST);
   }).catch(function () {
-    // The sheet could not be loaded: just the static blogs, no count, no button.
+    // The API could not be reached: just the static blogs, no count, no button.
     removeSkeletons();
   });
 })();
