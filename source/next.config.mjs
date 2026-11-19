@@ -37,16 +37,25 @@ const nextConfig = {
     ];
   },
   async rewrites() {
-    return [
-      {
-        source: '/case-studies/',
-        destination: '/case-studies/index.html',
-      },
-      {
-        source: '/case-studies/:path*/',
-        destination: '/case-studies/:path*/index.html',
-      },
-    ];
+    // Dev only: serve the /blogs/<slug>/ template for ANY slug (the blog is loaded in the browser
+    // from the API/sheet and reads the slug from the URL). In production the web server does this
+    // (see nginx.conf), because the static export can't add routes at runtime.
+    const blogSlugRewrite = isProd
+      ? []
+      : [{ source: '/blogs/:slug/', destination: '/blogs/_/' }];
+    return {
+      beforeFiles: blogSlugRewrite,
+      afterFiles: [
+        {
+          source: '/case-studies/',
+          destination: '/case-studies/index.html',
+        },
+        {
+          source: '/case-studies/:path*/',
+          destination: '/case-studies/:path*/index.html',
+        },
+      ],
+    };
   },
 };
 export default nextConfig;
