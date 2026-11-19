@@ -19,8 +19,8 @@ export function metaFrom(p: PageMeta): Metadata {
   };
 }
 
-export function PageView({ p }: { p: PageMeta }) {
-  const html = readContent(p.key);
+export function PageView({ p, html: htmlOverride }: { p: PageMeta; html?: string }) {
+  const html = htmlOverride ?? readContent(p.key);
   const styles = p.hasStyles ? readStyles(p.key) : '';
   const scripts = readScripts(p.key);
   return (

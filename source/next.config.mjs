@@ -55,16 +55,25 @@ const nextConfig = {
     ];
   },
   async rewrites() {
-    // Dev only: every /blog/<slug>/ that is not a static blog page is served the dynamic blog
-    // template (the blog is loaded in the browser from the API/sheet and reads the slug from the
-    // URL). In production the web server does this (see nginx.conf), because the static export
-    // cannot add routes at runtime.
+    // Dev only. A /blog/<slug>/ that is neither a static blog nor a blog the API returned (at dev-server
+    // start) is served the dynamic blog placeholder, which loads the blog in the browser. Blogs the
+    // API knows are rendered on the server like in production. In production the web server does the
+    // placeholder fallback (see nginx.conf), because a static export cannot add routes at runtime.
+    let knownApiSlugs = [];
+    if (!isProd) {
+      try {
+        const res = await fetch(process.env.BLOGS_API_URL || 'http://localhost:5500/api/v1/blogs', { signal: AbortSignal.timeout(3000) });
+        const data = await res.json();
+        knownApiSlugs = (data.blogs || []).map((x) => x.slug).filter((s) => /^[A-Za-z0-9_-]+$/.test(s));
+      } catch { /* API not running: everything non-static uses the placeholder */ }
+    }
+    const rendered = [...staticBlogSlugs, ...knownApiSlugs];
     const blogSlugRewrite =
-      isProd || !staticBlogSlugs.length
+      isProd || !rendered.length
         ? []
         : [
             {
-              source: `/blog/:slug((?!(?:${staticBlogSlugs.join('|')})(?:/|$))[^/]+)/`,
+              source: `/blog/:slug((?!(?:${rendered.join('|')})(?:/|$))[^/]+)/`,
               destination: '/blog/_/',
             },
           ];

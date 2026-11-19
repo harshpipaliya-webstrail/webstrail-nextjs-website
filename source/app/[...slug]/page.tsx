@@ -4,6 +4,7 @@ import { manifest, bySlug } from '@/lib/content';
 import { getDynamicBlogs } from '@/lib/dynamic-blogs';
 import { metaFrom, PageView } from '../_render';
 import { DynamicBlogView, dynamicBlogMetadata } from '../_dynamic-blog';
+import { BlogIndexView } from '../_blog-index';
 export const dynamicParams = false;
 
 // /blog/<slug> for a blog that is NOT a hand-built static page: it comes from the blogs API.
@@ -24,10 +25,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (isDynamicBlogPath(params.slug)) return dynamicBlogMetadata(params.slug[1]);
   return {};
 }
-export default function Page({ params }: Props) {
+export default async function Page({ params }: Props) {
   const p = bySlug(params.slug);
   if (!p) {
-    if (isDynamicBlogPath(params.slug)) return <DynamicBlogView />;
+    if (isDynamicBlogPath(params.slug)) return await DynamicBlogView({ slug: params.slug[1] });
     notFound();
   }
   if (p.redirectTo) {
@@ -50,5 +51,6 @@ export default function Page({ params }: Props) {
       </html>
     );
   }
+  if (p.key === 'blog') return await BlogIndexView({ p });
   return <PageView p={p} />;
 }

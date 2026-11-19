@@ -16,6 +16,8 @@ export type DynamicBlog = {
   details: string;
   category: string;
   heroimage: string;
+  doc: string;
+  uploadedby: string;
   createdon: string;
   updatedon: string;
 };
@@ -38,8 +40,15 @@ export function parseSheetDate(s: string): Date | null {
   return isNaN(d.getTime()) ? null : d;
 }
 
-/** Dynamic blogs from the API, excluding any slug that already exists as a static blog. Never throws. */
-export async function getDynamicBlogs(): Promise<DynamicBlog[]> {
+/** Dynamic blogs from the API (excluding slugs that exist as static blogs); null if the API could not be read. Never throws. */
+let buildCache: Promise<DynamicBlog[] | null> | null = null;
+export function fetchDynamicBlogs(): Promise<DynamicBlog[] | null> {
+  // `next build` renders many pages: read the API once. In dev always read fresh.
+  if (process.env.NODE_ENV !== 'production') return readDynamicBlogs();
+  return (buildCache ??= readDynamicBlogs());
+}
+
+async function readDynamicBlogs(): Promise<DynamicBlog[] | null> {
   try {
     const res = await fetch(API_URL, { cache: 'no-store', signal: AbortSignal.timeout(15000) });
     if (!res.ok) throw new Error('API responded ' + res.status);
@@ -63,6 +72,8 @@ export async function getDynamicBlogs(): Promise<DynamicBlog[]> {
         details: o.details || '',
         category: o.category || '',
         heroimage: o.heroimage || '',
+        doc: o.doc || '',
+        uploadedby: o.uploadedby || '',
         createdon: o.createdon || '',
         updatedon: o.updatedon || '',
       });
@@ -70,6 +81,11 @@ export async function getDynamicBlogs(): Promise<DynamicBlog[]> {
     return out;
   } catch (err) {
     console.warn('[dynamic-blogs] could not read the blogs API:', (err as Error).message);
-    return [];
+    return null;
   }
+}
+
+/** Same as fetchDynamicBlogs but [] when the API is unreachable. */
+export async function getDynamicBlogs(): Promise<DynamicBlog[]> {
+  return (await fetchDynamicBlogs()) ?? [];
 }

@@ -216,16 +216,26 @@
     if (art && art.parentNode) art.parentNode.parentNode.style.display = 'none';
   }
 
+  // Built at deploy time (server-rendered into the HTML): hero, related blogs and – when the Google
+  // Doc could be read – the body are already in the page. Then the browser has nothing to do,
+  // except fetch the body if the build could not.
+  var hero = $('bdHeroGrid');
+  var prerendered = !!hero && hero.getAttribute('data-ssr') === '1';
+  var bodyPrerendered = !!$('bdContent') && $('bdContent').getAttribute('data-ssr') === '1';
+  if (prerendered && bodyPrerendered) return;
+
   var slug = getSlug();
   B.loadAll().then(function (all) {
     var cur = all.filter(function (x) { return x.slug.toLowerCase() === slug; })[0];
-    if (!cur) return notFound();
-    setMeta(cur);
-    renderHero(cur);
-    renderRelated(all, cur);
+    if (!cur) { if (prerendered) return; return notFound(); }
+    if (!prerendered) {
+      setMeta(cur);
+      renderHero(cur);
+      renderRelated(all, cur);
+    }
     renderContent(cur);
   }).catch(function (err) {
     console.error('[blog] failed to load', err);
-    notFound();
+    if (!prerendered) notFound();
   });
 })();
