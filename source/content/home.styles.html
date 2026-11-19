@@ -3564,4 +3564,12 @@
       right: 10px;
     }
   }
+
+
+  /* Google Calendar "Book Your Slot" popup: the embedded booking page has a transparent
+     background, so give its iframe a white one (the dimmed overlay stays as is). */
+  iframe[src*="calendar.google.com/calendar/appointments"] {
+    background-color: #fff !important;
+    border-radius: 8px;
+  }
 </style>

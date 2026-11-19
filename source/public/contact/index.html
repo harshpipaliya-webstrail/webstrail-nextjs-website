@@ -54,6 +54,7 @@
     margin-top: var(--space-6);
   }
 
+
   .calendar-btn-wrap {
     flex-shrink: 0;
     padding-top: 30px;
@@ -88,6 +89,13 @@
       padding: 72px 10px;
       z-index: 9999;
     }
+  }
+
+  /* Google Calendar "Book Your Slot" popup: the embedded booking page has a transparent
+     background, so give its iframe a white one (the dimmed overlay stays as is). */
+  iframe[src*="calendar.google.com/calendar/appointments"] {
+    background-color: #fff !important;
+    border-radius: 8px;
   }
   @media (max-width: 480px) {
     .Xfsokf {
