@@ -14,7 +14,7 @@ Webstrail designs, builds, **and runs** custom software for the dental industry 
 
 The wedge is a quadrant no competitor owns: **dental-native AND build-and-run accountability.** Dev shops ship code and leave; off-the-shelf platforms can't customize. Webstrail builds it right once and stays to run it.
 
-**Named proof (use these, don't over-claim):** Tooth Teller (2-yr build + run), Fortune Management (practice-management & coaching), TruBlu Plan for Health (membership/wellness plans), Smile Wizard (dental product & brand). A ~20-person MERN / Python team with design and product capability. 100% of clients chose to stay on retainer.
+**Named proof (use these, don't over-claim):** Tooth Teller (2-yr build + run), Fortune Management (practice-management & coaching), TruBlu Plan for Health (membership/wellness plans)<!-- , Smile Wizard (dental product & brand) -->. A ~20-person MERN / Python team with design and product capability. 100% of clients chose to stay on retainer.
 
 **On AI:** a capability embedded *inside* dental products (patient/member messaging, scheduling, intake, revenue cycle) — "AI where it actually pays." Never the headline, never a standalone pillar.
 
