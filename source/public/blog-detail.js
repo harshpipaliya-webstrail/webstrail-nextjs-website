@@ -1,4 +1,4 @@
-/* /blogs/<slug> — single blog view. Everything is driven by the blogs data (API / Google Sheet). */
+/* /blog/<slug> — single blog view. Everything is driven by the blogs data (API / Google Sheet). */
 (function () {
   if (window.__blogDetailInit) return;
   window.__blogDetailInit = true;
@@ -9,7 +9,7 @@
 
   function getSlug() {
     var parts = location.pathname.split('/').filter(Boolean);
-    var i = parts.indexOf('blogs');
+    var i = parts.indexOf('blog');
     var s = i > -1 ? parts[i + 1] : '';
     try { return decodeURIComponent(s || '').toLowerCase(); } catch (e) { return (s || '').toLowerCase(); }
   }
@@ -184,14 +184,12 @@
     }
   }
 
+  // Related = every other blog (static + dynamic) in the same category.
   function renderRelated(all, current) {
-    var list = all.filter(function (x) { return x.slug.toLowerCase() !== current.slug.toLowerCase(); })
-      .map(function (x, i) { return { b: x, i: i, t: (parseDate(x.createdon) || new Date(0)).getTime() }; })
-      .sort(function (a, z) { return z.t - a.t || a.i - z.i; })
-      .slice(0, 20);
+    var list = B.related(all, current);
     var html = '<section class="related-blogs prose"><h2>Related Blogs</h2><div class="blog-list">';
-    list.forEach(function (r) {
-      html += '<div><a href="/blogs/' + encodeURIComponent(r.b.slug) + '/">' + esc(r.b.title) + '</a></div>';
+    list.forEach(function (b) {
+      html += '<div><a href="/blog/' + encodeURIComponent(b.slug) + '/">' + esc(b.title) + '</a></div>';
     });
     html += '</div></section>';
     $('related-blogs').innerHTML = list.length ? html : '';
@@ -206,20 +204,20 @@
     m.content = desc;
     var canon = document.querySelector('link[rel="canonical"]');
     if (!canon) { canon = document.createElement('link'); canon.rel = 'canonical'; document.head.appendChild(canon); }
-    canon.href = 'https://webstrail.com/blogs/' + encodeURIComponent(b.slug) + '/';
+    canon.href = 'https://webstrail.com/blog/' + encodeURIComponent(b.slug) + '/';
   }
 
   function notFound() {
     document.title = 'Blog not found | Webstrail';
     $('bdHeroGrid').innerHTML = '<div class="bd-notfound"><p class="eyebrow">404</p><h1>Blog not found</h1>' +
       '<p class="lede">We couldn\'t find that blog. It may have been moved or removed.</p>' +
-      '<p><a class="btn btn--brand" href="/blogs/">Browse all blogs</a></p></div>';
+      '<p><a class="btn btn--brand" href="/blog/">Browse all blogs</a></p></div>';
     var art = document.querySelector('.blog-wrapper');
     if (art && art.parentNode) art.parentNode.parentNode.style.display = 'none';
   }
 
   var slug = getSlug();
-  B.load().then(function (all) {
+  B.loadAll().then(function (all) {
     var cur = all.filter(function (x) { return x.slug.toLowerCase() === slug; })[0];
     if (!cur) return notFound();
     setMeta(cur);

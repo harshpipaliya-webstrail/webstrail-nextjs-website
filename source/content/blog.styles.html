@@ -5,4 +5,15 @@
     --font-sans:"TT Hoves Pro","General Sans","DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     --track-display:-0.028em; }
   .nav__brand img { height: 42px; }
+
+  /* skeleton loaders */
+  @keyframes bl-pulse { 0%,100%{opacity:1} 50%{opacity:.45} }
+  .bl-sk { display:block; background:#e2e8f0; border-radius:4px; animation: bl-pulse 1.5s infinite; }
+  .bl-sk--tag { width:90px; height:22px; }
+  .bl-sk--title { width:80%; height:22px; margin:14px 0 12px; }
+  .bl-sk--line { width:100%; height:14px; margin-bottom:8px; }
+  .bl-sk--short { width:60%; }
+  .cs-card--skeleton { pointer-events:none; }
+  .cs-showmore { display:flex; justify-content:center; margin-top: var(--space-6, 32px); }
+  .cs-showmore[hidden] { display:none; }
 </style>

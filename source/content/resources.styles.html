@@ -167,4 +167,11 @@
       grid-template-columns: 1fr;
     }
   }
+
+  /* Search blogs: skeleton rows until the merged blog list has loaded */
+  @keyframes bl-pulse { 0%,100%{opacity:1} 50%{opacity:.45} }
+  .bl-sk { display:block; background:#e2e8f0; border-radius:4px; animation: bl-pulse 1.5s infinite; }
+  .bl-sk--row { height:16px; margin:6px 0 14px; }
+  .bl-sk--row:nth-child(2) { width:85%; }
+  .bl-sk--row:nth-child(3) { width:70%; }
 </style>

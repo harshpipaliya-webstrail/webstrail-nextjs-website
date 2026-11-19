@@ -47,6 +47,7 @@ function getPriorityAndChangeFreq(urlPath: string): { priority: number; changeFr
 }
 
 import { loadManifest } from '@/lib/content';
+import { getDynamicBlogs, parseSheetDate } from '@/lib/dynamic-blogs';
 
 function getManifestPages(): MetadataRoute.Sitemap {
   try {
@@ -190,12 +191,25 @@ function getAppRoutes(): MetadataRoute.Sitemap {
   return pages;
 }
 
-export default function sitemap(): MetadataRoute.Sitemap {
+// Blogs from the Google Sheet: same URL shape as the static blogs (/blog/<slug>/).
+// lastModified = updatedOn, else createdOn (falls back to now if neither is set).
+async function getDynamicBlogPages(): Promise<MetadataRoute.Sitemap> {
+  const blogs = await getDynamicBlogs();
+  return blogs.map((b) => ({
+    url: `${BASE_URL}/blog/${encodeURIComponent(b.slug)}/`,
+    lastModified: parseSheetDate(b.updatedon) || parseSheetDate(b.createdon) || new Date(),
+    changeFrequency: 'monthly' as ChangeFrequency,
+    priority: 0.7,
+  }));
+}
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const manifestPages = getManifestPages();
+  const dynamicBlogPages = await getDynamicBlogPages();
   const publicPages = getPublicPages();
   const appRoutes = getAppRoutes();
 
-  const all = [...manifestPages, ...publicPages, ...appRoutes];
+  const all = [...manifestPages, ...publicPages, ...appRoutes, ...dynamicBlogPages];
   const seen = new Set<string>();
   const uniquePages: MetadataRoute.Sitemap = [];
 

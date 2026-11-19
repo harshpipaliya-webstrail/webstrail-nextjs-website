@@ -450,7 +450,7 @@
                       </svg></a>
                   </div>
                   <div class="mega__grid">
-                    <a class="mega__link" href="/resources/"><span class="mi"><svg viewBox="0 0 24 24" fill="none"
+                    <a class="mega__link" href="/blog/"><span class="mi"><svg viewBox="0 0 24 24" fill="none"
                           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                           <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z" />
                           <path d="M14 2v5h5M9 13h6M9 17h4" />
@@ -740,6 +740,27 @@
               </span>
             </a>
 
+
+            <div class="cs-card cs-card--skeleton" aria-hidden="true">
+              <div class="cs-card__top"><span class="bl-sk bl-sk--tag"></span></div>
+              <span class="bl-sk bl-sk--title"></span>
+              <span class="bl-sk bl-sk--line"></span>
+              <span class="bl-sk bl-sk--line bl-sk--short"></span>
+            </div>
+
+            <div class="cs-card cs-card--skeleton" aria-hidden="true">
+              <div class="cs-card__top"><span class="bl-sk bl-sk--tag"></span></div>
+              <span class="bl-sk bl-sk--title"></span>
+              <span class="bl-sk bl-sk--line"></span>
+              <span class="bl-sk bl-sk--line bl-sk--short"></span>
+            </div>
+
+            <div class="cs-card cs-card--skeleton" aria-hidden="true">
+              <div class="cs-card__top"><span class="bl-sk bl-sk--tag"></span></div>
+              <span class="bl-sk bl-sk--title"></span>
+              <span class="bl-sk bl-sk--line"></span>
+              <span class="bl-sk bl-sk--line bl-sk--short"></span>
+            </div>
           </div>
           <div class="cs-sentinel" id="csSentinel" aria-hidden="true"></div>
           <p class="cs-count" id="csCount" aria-live="polite"></p>
@@ -853,37 +874,6 @@
       }
     })();
 
-    /* lazy infinite-scroll loading */
-    (function () {
-      var grid = document.getElementById('csGrid'); if (!grid) return;
-      var cards = Array.prototype.slice.call(grid.querySelectorAll('.cs-card'));
-      var sentinel = document.getElementById('csSentinel');
-      var more = document.getElementById('csMore');
-      var count = document.getElementById('csCount');
-      var BATCH = 6, shown = 0, io = null;
-      function updateCount() { if (count) count.textContent = 'Showing ' + shown + ' of ' + cards.length + ' blogs'; }
-      function reveal() {
-        var end = Math.min(shown + BATCH, cards.length);
-        for (var i = shown; i < end; i++) {
-          var c = cards[i]; c.hidden = false;
-          (function (card) { requestAnimationFrame(function () { card.classList.add('cs-in'); }); })(c);
-        }
-        shown = end; updateCount();
-        if (shown >= cards.length) { if (io) io.disconnect(); if (more) more.hidden = true; }
-      }
-      // hide everything, fade-prep, then reveal the first batch
-      cards.forEach(function (c) { c.classList.add('cs-reveal'); c.hidden = true; });
-      reveal();
-      if ('IntersectionObserver' in window) {
-        io = new IntersectionObserver(function (entries) {
-          entries.forEach(function (e) { if (e.isIntersecting && shown < cards.length) reveal(); });
-        }, { rootMargin: '300px 0px' });
-        io.observe(sentinel);
-      } else {
-        // fallback: reveal the rest
-        while (shown < cards.length) reveal();
-      }
-    })();
   </script>
   <script src="/Webstrail%20Design%20System/ui_kits/website/reveal.js?v=20260723b" defer></script>
 </body>

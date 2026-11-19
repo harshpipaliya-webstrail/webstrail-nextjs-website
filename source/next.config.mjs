@@ -5,7 +5,21 @@
 // server throws a spurious "missing generateStaticParams()" 500 on every dynamic
 // route. This does NOT change the production output; `next build` still exports
 // the full static site exactly as before.
+import { readdirSync } from 'fs';
+
 const isProd = process.env.NODE_ENV === 'production';
+
+// Slugs of the hand-built static blogs (content/blog__<slug>.html). Used (dev only) so that every
+// OTHER /blog/<slug>/ URL is served by the dynamic blog template.
+const staticBlogSlugs = (() => {
+  try {
+    return readdirSync('content')
+      .filter((f) => /^blog__.+\.html$/.test(f) && !f.endsWith('.styles.html'))
+      .map((f) => f.slice('blog__'.length, -'.html'.length));
+  } catch {
+    return [];
+  }
+})();
 const nextConfig = {
   output: isProd ? 'export' : undefined,
   trailingSlash: true,
@@ -14,6 +28,10 @@ const nextConfig = {
   async redirects() {
     if (isProd) return [];
     return [
+      { source: '/blogs', destination: '/blog/', permanent: true },
+      { source: '/blogs/', destination: '/blog/', permanent: true },
+      { source: '/blogs/:slug', destination: '/blog/:slug/', permanent: true },
+      { source: '/blogs/:slug/', destination: '/blog/:slug/', permanent: true },
       {
         source: '/resources/blogs',
         destination: '/blog',
@@ -37,12 +55,19 @@ const nextConfig = {
     ];
   },
   async rewrites() {
-    // Dev only: serve the /blogs/<slug>/ template for ANY slug (the blog is loaded in the browser
-    // from the API/sheet and reads the slug from the URL). In production the web server does this
-    // (see nginx.conf), because the static export can't add routes at runtime.
-    const blogSlugRewrite = isProd
-      ? []
-      : [{ source: '/blogs/:slug/', destination: '/blogs/_/' }];
+    // Dev only: every /blog/<slug>/ that is not a static blog page is served the dynamic blog
+    // template (the blog is loaded in the browser from the API/sheet and reads the slug from the
+    // URL). In production the web server does this (see nginx.conf), because the static export
+    // cannot add routes at runtime.
+    const blogSlugRewrite =
+      isProd || !staticBlogSlugs.length
+        ? []
+        : [
+            {
+              source: `/blog/:slug((?!(?:${staticBlogSlugs.join('|')})(?:/|$))[^/]+)/`,
+              destination: '/blog/_/',
+            },
+          ];
     return {
       beforeFiles: blogSlugRewrite,
       afterFiles: [
