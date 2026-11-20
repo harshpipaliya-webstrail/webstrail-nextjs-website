@@ -104,6 +104,7 @@
   }
   
 </style>
+<script src="/api-config.js"></script>
 </head>
 <body>
 <div class="site">
@@ -443,7 +444,7 @@
     var form = document.getElementById('contactForm'); if (!form) return;
     var btn = document.getElementById('contactSubmit');
     var status = document.getElementById('contactStatus');
-    var ENDPOINT = 'https://api-webstrail.webstrail.com/api/v1/contact-us/send-sales-mail';
+    var ENDPOINT = (window.WEBSTRAIL_API_URL || '') + '/api/v1/contact-us/send-sales-mail';
     function say(msg, ok){ status.hidden=false; status.textContent=msg; status.classList.toggle('is-ok',!!ok); status.classList.toggle('is-err',!ok); }
     form.addEventListener('submit', function (e){
       e.preventDefault();

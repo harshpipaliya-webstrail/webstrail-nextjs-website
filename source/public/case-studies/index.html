@@ -84,6 +84,19 @@
   .cs-count { text-align: center; margin-top: var(--space-5); font: var(--text-caption); color: var(--muted); }
   @media (prefers-reduced-motion: reduce) { .cs-reveal, .cs-reveal.cs-in { opacity: 1 !important; transform: none !important; transition: none; } .cs-spinner { animation: none; } }
 </style>
+<style>
+  /* skeleton loaders + show more (dynamic case studies) */
+  @keyframes cs-pulse { 0%,100%{opacity:1} 50%{opacity:.45} }
+  .cs-sk { display:block; background:#e2e8f0; border-radius:4px; animation: cs-pulse 1.5s infinite; }
+  .cs-card--skeleton .cs-card__top { display:flex; gap:8px; }
+  .cs-sk--tag { width:84px; height:22px; }
+  .cs-sk--title { width:80%; height:22px; margin:14px 0 12px; }
+  .cs-sk--line { width:100%; height:14px; margin-bottom:8px; }
+  .cs-sk--short { width:60%; }
+  .cs-card--skeleton { pointer-events:none; }
+  .cs-showmore { display:flex; justify-content:center; margin-top: var(--space-6, 32px); }
+  .cs-showmore[hidden] { display:none; }
+</style>
 </head>
 <body>
 <div class="site">
@@ -288,6 +301,27 @@
             <span class="cs-readmore">Read Case Study<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
           </a>
 
+
+          <div class="cs-card cs-card--skeleton" aria-hidden="true">
+            <div class="cs-card__top"><span class="cs-sk cs-sk--tag"></span><span class="cs-sk cs-sk--tag"></span></div>
+            <span class="cs-sk cs-sk--title"></span>
+            <span class="cs-sk cs-sk--line"></span>
+            <span class="cs-sk cs-sk--line cs-sk--short"></span>
+          </div>
+
+          <div class="cs-card cs-card--skeleton" aria-hidden="true">
+            <div class="cs-card__top"><span class="cs-sk cs-sk--tag"></span><span class="cs-sk cs-sk--tag"></span></div>
+            <span class="cs-sk cs-sk--title"></span>
+            <span class="cs-sk cs-sk--line"></span>
+            <span class="cs-sk cs-sk--line cs-sk--short"></span>
+          </div>
+
+          <div class="cs-card cs-card--skeleton" aria-hidden="true">
+            <div class="cs-card__top"><span class="cs-sk cs-sk--tag"></span><span class="cs-sk cs-sk--tag"></span></div>
+            <span class="cs-sk cs-sk--title"></span>
+            <span class="cs-sk cs-sk--line"></span>
+            <span class="cs-sk cs-sk--line cs-sk--short"></span>
+          </div>
         </div>
         <div class="cs-sentinel" id="csSentinel" aria-hidden="true"></div>
         <p class="cs-count" id="csCount" aria-live="polite"></p>
@@ -347,38 +381,11 @@
     }
   })();
 
-  /* lazy infinite-scroll loading */
-  (function () {
-    var grid = document.getElementById('csGrid'); if (!grid) return;
-    var cards = Array.prototype.slice.call(grid.querySelectorAll('.cs-card'));
-    var sentinel = document.getElementById('csSentinel');
-    var more = document.getElementById('csMore');
-    var count = document.getElementById('csCount');
-    var BATCH = 6, shown = 0, io = null;
-    function updateCount() { if (count) count.textContent = 'Showing ' + shown + ' of ' + cards.length + ' case studies'; }
-    function reveal() {
-      var end = Math.min(shown + BATCH, cards.length);
-      for (var i = shown; i < end; i++) {
-        var c = cards[i]; c.hidden = false;
-        (function (card) { requestAnimationFrame(function () { card.classList.add('cs-in'); }); })(c);
-      }
-      shown = end; updateCount();
-      if (shown >= cards.length) { if (io) io.disconnect(); if (more) more.hidden = true; }
-    }
-    // hide everything, fade-prep, then reveal the first batch
-    cards.forEach(function (c) { c.classList.add('cs-reveal'); c.hidden = true; });
-    reveal();
-    if ('IntersectionObserver' in window) {
-      io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) { if (e.isIntersecting && shown < cards.length) reveal(); });
-      }, { rootMargin: '300px 0px' });
-      io.observe(sentinel);
-    } else {
-      // fallback: reveal the rest
-      while (shown < cards.length) reveal();
-    }
-  })();
 </script>
+  <script src="/api-config.js"></script>
+  <script src="/case-studies-static.js?v=2"></script>
+  <script src="/case-studies-data.js?v=2"></script>
+  <script src="/case-studies-index.js?v=2"></script>
   <script src="/Webstrail%20Design%20System/ui_kits/website/reveal.js?v=20260723b" defer></script>
 </body>
 </html>

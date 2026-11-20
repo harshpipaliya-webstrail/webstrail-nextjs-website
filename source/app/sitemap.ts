@@ -48,6 +48,7 @@ function getPriorityAndChangeFreq(urlPath: string): { priority: number; changeFr
 
 import { loadManifest } from '@/lib/content';
 import { getDynamicBlogs, parseSheetDate } from '@/lib/dynamic-blogs';
+import { getDynamicCaseStudies } from '@/lib/dynamic-case-studies';
 
 function getManifestPages(): MetadataRoute.Sitemap {
   try {
@@ -203,13 +204,26 @@ async function getDynamicBlogPages(): Promise<MetadataRoute.Sitemap> {
   }));
 }
 
+// Case studies from the API: same URL shape as the static ones (/case-studies/<slug>/).
+// lastModified = updatedOn, else publishedOn (falls back to now if neither is set).
+async function getDynamicCaseStudyPages(): Promise<MetadataRoute.Sitemap> {
+  const items = await getDynamicCaseStudies();
+  return items.map((c) => ({
+    url: `${BASE_URL}/case-studies/${encodeURIComponent(c.slug)}/`,
+    lastModified: parseSheetDate(c.updatedon) || parseSheetDate(c.publishedon) || new Date(),
+    changeFrequency: 'monthly' as ChangeFrequency,
+    priority: 0.7,
+  }));
+}
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const manifestPages = getManifestPages();
   const dynamicBlogPages = await getDynamicBlogPages();
+  const dynamicCaseStudyPages = await getDynamicCaseStudyPages();
   const publicPages = getPublicPages();
   const appRoutes = getAppRoutes();
 
-  const all = [...manifestPages, ...publicPages, ...appRoutes, ...dynamicBlogPages];
+  const all = [...manifestPages, ...publicPages, ...appRoutes, ...dynamicBlogPages, ...dynamicCaseStudyPages];
   const seen = new Set<string>();
   const uniquePages: MetadataRoute.Sitemap = [];
 

@@ -15,10 +15,13 @@
     "src": "/Webstrail%20Design%20System/ui_kits/website/reveal.js?v=20260723b"
   },
   {
+    "src": "/api-config.js"
+  },
+  {
     "src": "/blogs-static.js?v=3"
   },
   {
-    "src": "/blogs-data.js?v=3"
+    "src": "/blogs-data.js?v=9"
   },
   {
     "src": "/blog-detail.js?v=4"

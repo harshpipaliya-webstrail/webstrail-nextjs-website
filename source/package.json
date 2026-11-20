@@ -6,7 +6,7 @@
     "extract": "node scripts/extract.mjs",
     "dev": "next dev -p 8124",
     "build": "next build",
-    "postbuild": "node scripts/sync-build.mjs",
+    "postbuild": "node scripts/sync-build.mjs && node scripts/inject-case-studies.mjs",
     "start": "next start -p 8124",
     "production": "npx serve@latest out"
   },

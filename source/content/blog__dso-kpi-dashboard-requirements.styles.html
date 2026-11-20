@@ -11,7 +11,9 @@
   @keyframes rb-pulse { 0%,100%{opacity:1} 50%{opacity:.45} }
   @keyframes rb-reveal { to { max-height: 4000px; } }
   #related-blogs:not(.rb-ready) .blog-list { position: relative; max-height: 190px; overflow: hidden; animation: rb-reveal 0s 8s forwards; }
-  #related-blogs:not(.rb-ready) .blog-list > div { visibility: hidden; }
+  @keyframes rb-show { to { visibility: visible; } }
+  @keyframes rb-gone { to { opacity: 0; visibility: hidden; } }
+  #related-blogs:not(.rb-ready) .blog-list > div { visibility: hidden; animation: rb-show 0s 8s forwards; }
   #related-blogs:not(.rb-ready) .blog-list::before {
     content: ""; position: absolute; inset: 0; z-index: 1;
     background:
@@ -20,6 +22,6 @@
       linear-gradient(#e2e8f0,#e2e8f0) 0 80px / 100% 14px no-repeat,
       linear-gradient(#e2e8f0,#e2e8f0) 0 118px / 70% 14px no-repeat,
       linear-gradient(#e2e8f0,#e2e8f0) 0 156px / 90% 14px no-repeat;
-    animation: rb-pulse 1.5s infinite;
+    animation: rb-pulse 1.5s infinite, rb-gone 0s 8s forwards;
   }
 </style>

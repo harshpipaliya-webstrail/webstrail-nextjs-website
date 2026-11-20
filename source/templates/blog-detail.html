@@ -80,8 +80,15 @@
     .bd-sk--l{height:14px;width:100%;margin:10px 0}
     .bd-sk--s{width:60%}
     .blog-content img{max-width:100%;height:auto;border-radius:8px}
-    .blog-content table{width:100%;border-collapse:collapse;display:block;overflow-x:auto}
-    .blog-content td,.blog-content th{border:1px solid #d5d5d5;padding:8px 10px;vertical-align:top}
+    /* tables from the doc: rounded outer border, space above */
+    .blog-content table{display:block;max-width:100%;overflow-x:auto;margin-top:var(--space-6,32px);border:1px solid #d5d5d5;border-radius:10px;border-collapse:separate;border-spacing:0}
+    .blog-content td,.blog-content th{border-right:1px solid #d5d5d5;border-bottom:1px solid #d5d5d5;padding:10px 14px;vertical-align:top;text-align:left}
+    .blog-content table>tbody,.blog-content table>thead{display:table;width:100%}
+    /* paragraphs inside table cells: smaller text, tighter spacing */
+    .blog-content td p,.blog-content th p{margin-top:0;font-size:.9rem;line-height:1.5}
+    .blog-content td p+p,.blog-content th p+p{margin-top:6px}
+    .blog-content tr>*:last-child{border-right:0}
+    .blog-content tr:last-child>*{border-bottom:0}
     .blog-content iframe{width:100%;min-height:1400px;border:0}
     .bd-notfound{text-align:center;padding:60px 0}
   </style>

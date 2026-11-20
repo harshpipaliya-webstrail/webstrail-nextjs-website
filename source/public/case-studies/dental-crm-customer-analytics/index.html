@@ -101,6 +101,26 @@
   .csd-cta h2 { color: #fff; font-size: clamp(1.8rem, 1.3rem + 1.8vw, 2.4rem); font-weight: var(--w-medium); line-height: 1.15; max-width: 24ch; margin: 0 auto; }
   .csd-cta p { color: var(--on-dark-muted); font-size: 1.0625rem; line-height: 1.6; max-width: 54ch; margin: var(--space-4) auto var(--space-6); }
 </style>
+<style>
+  /* Related Case Studies: skeleton until the same-category list is ready (script adds .rb-ready).
+     The original list stays in the DOM; it is only masked. Safety net: revealed after 8s. */
+  @keyframes rb-pulse { 0%,100%{opacity:1} 50%{opacity:.45} }
+  @keyframes rb-reveal { to { max-height: 4000px; } }
+  #related-case-studies:not(.rb-ready) .blog-list { position: relative; max-height: 190px; overflow: hidden; animation: rb-reveal 0s 8s forwards; }
+  @keyframes rb-show { to { visibility: visible; } }
+  @keyframes rb-gone { to { opacity: 0; visibility: hidden; } }
+  #related-case-studies:not(.rb-ready) .blog-list > div { visibility: hidden; animation: rb-show 0s 8s forwards; }
+  #related-case-studies:not(.rb-ready) .blog-list::before {
+    content: ""; position: absolute; inset: 0; z-index: 1;
+    background:
+      linear-gradient(#e2e8f0,#e2e8f0) 0 4px / 100% 14px no-repeat,
+      linear-gradient(#e2e8f0,#e2e8f0) 0 42px / 80% 14px no-repeat,
+      linear-gradient(#e2e8f0,#e2e8f0) 0 80px / 100% 14px no-repeat,
+      linear-gradient(#e2e8f0,#e2e8f0) 0 118px / 70% 14px no-repeat,
+      linear-gradient(#e2e8f0,#e2e8f0) 0 156px / 90% 14px no-repeat;
+    animation: rb-pulse 1.5s infinite, rb-gone 0s 8s forwards;
+  }
+</style>
 </head>
 <body>
 <div class="site">
@@ -350,5 +370,9 @@
   })();
 </script>
   <script src="/Webstrail%20Design%20System/ui_kits/website/reveal.js?v=20260723b" defer></script>
+<script src="/api-config.js"></script>
+<script src="/case-studies-static.js?v=2"></script>
+<script src="/case-studies-data.js?v=2"></script>
+<script src="/case-studies-related.js?v=2"></script>
 </body>
 </html>

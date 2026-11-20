@@ -2,12 +2,9 @@
 // Used for: prerendered page metadata, generateStaticParams and the sitemap.
 // The browser loads the same data on its own (public/blogs-data.js).
 import { manifest } from '@/lib/content';
+import { api } from '@/lib/api';
 
-// Override with BLOGS_API_URL. `next build` (NODE_ENV=production) uses the production API.
-const API_URL =
-  (process.env.NODE_ENV === 'production'
-    ? 'https://api-webstrail.webstrail.com/api/v1/blogs'
-    : 'http://localhost:5500/api/v1/blogs');
+const API_URL = api('/api/v1/blogs');
 
 export type DynamicBlog = {
   slug: string;

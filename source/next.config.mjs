@@ -5,7 +5,7 @@
 // server throws a spurious "missing generateStaticParams()" 500 on every dynamic
 // route. This does NOT change the production output; `next build` still exports
 // the full static site exactly as before.
-import { readdirSync } from 'fs';
+import { readdirSync, statSync } from 'fs';
 
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -16,6 +16,14 @@ const staticBlogSlugs = (() => {
     return readdirSync('content')
       .filter((f) => /^blog__.+\.html$/.test(f) && !f.endsWith('.styles.html'))
       .map((f) => f.slice('blog__'.length, -'.html'.length));
+  } catch {
+    return [];
+  }
+})();
+// Slugs of the hand-built static case studies (public/case-studies/<slug>/index.html).
+const staticCaseStudySlugs = (() => {
+  try {
+    return readdirSync('public/case-studies').filter((d) => statSync('public/case-studies/' + d).isDirectory());
   } catch {
     return [];
   }
@@ -62,12 +70,33 @@ const nextConfig = {
     let knownApiSlugs = [];
     if (!isProd) {
       try {
-        const res = await fetch(process.env.BLOGS_API_URL || 'http://localhost:5500/api/v1/blogs', { signal: AbortSignal.timeout(3000) });
+        const res = await fetch(`${process.env.API_URL || ''}/api/v1/blogs`, { signal: AbortSignal.timeout(3000) });
         const data = await res.json();
         knownApiSlugs = (data.blogs || []).map((x) => x.slug).filter((s) => /^[A-Za-z0-9_-]+$/.test(s));
       } catch { /* API not running: everything non-static uses the placeholder */ }
     }
     const rendered = [...staticBlogSlugs, ...knownApiSlugs];
+    // Same idea for case studies: static ones are plain files in public/; any other slug is served
+    // by the dynamic case-study page (API ones are rendered on the server, others use the placeholder).
+    let knownCaseStudySlugs = [];
+    if (!isProd) {
+      try {
+        const res = await fetch(`${process.env.API_URL || ''}/api/v1/case-studies`, { signal: AbortSignal.timeout(3000) });
+        const data = await res.json();
+        const rows = Array.isArray(data) ? data : Object.values(data || {}).find(Array.isArray) || [];
+        knownCaseStudySlugs = rows.map((x) => x.slug).filter((s) => /^[A-Za-z0-9_-]+$/.test(s));
+      } catch { /* API not running */ }
+    }
+    const renderedCaseStudies = [...staticCaseStudySlugs, ...knownCaseStudySlugs];
+    const caseStudySlugRewrite =
+      isProd || !renderedCaseStudies.length
+        ? []
+        : [
+            {
+              source: `/case-studies/:slug((?!(?:${renderedCaseStudies.join('|')})(?:/|$))[^/]+)/`,
+              destination: '/case-studies/_/',
+            },
+          ];
     const blogSlugRewrite =
       isProd || !rendered.length
         ? []
@@ -78,16 +107,21 @@ const nextConfig = {
             },
           ];
     return {
-      beforeFiles: blogSlugRewrite,
+      beforeFiles: [...blogSlugRewrite, ...caseStudySlugRewrite],
       afterFiles: [
         {
           source: '/case-studies/',
           destination: '/case-studies/index.html',
         },
-        {
-          source: '/case-studies/:path*/',
-          destination: '/case-studies/:path*/index.html',
-        },
+        // static case-study pages only; every other slug is handled by app/case-studies/[slug]
+        ...(staticCaseStudySlugs.length
+          ? [
+              {
+                source: `/case-studies/:slug(${staticCaseStudySlugs.join('|')})/`,
+                destination: '/case-studies/:slug/index.html',
+              },
+            ]
+          : []),
       ],
     };
   },

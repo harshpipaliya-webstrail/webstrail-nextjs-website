@@ -1,0 +1,20 @@
+[
+  {
+    "code": "\n  (function () {\n    var nav = document.getElementById('nav'), menu = document.getElementById('mobileMenu'), burger = document.getElementById('burger');\n    function onScroll() { nav.classList.toggle('is-stuck', window.scrollY > 12); }\n    window.addEventListener('scroll', onScroll, { passive: true }); onScroll();\n    if (burger && menu) {\n      burger.addEventListener('click', function () { menu.classList.toggle('is-open'); });\n      menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { menu.classList.remove('is-open'); }); });\n    }\n  })();\n"
+  },
+  {
+    "src": "/Webstrail%20Design%20System/ui_kits/website/reveal.js?v=20260723b"
+  },
+  {
+    "src": "/api-config.js"
+  },
+  {
+    "src": "/case-studies-static.js?v=1"
+  },
+  {
+    "src": "/case-studies-data.js?v=9"
+  },
+  {
+    "src": "/case-study-detail.js?v=2"
+  }
+]

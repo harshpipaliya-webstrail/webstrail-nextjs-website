@@ -1,14 +1,15 @@
 /* Shared blogs data loader: /blog index, /blog/<slug>, Related Blogs and /resources search.
- * Dynamic blogs come from the blogs API (local and production URLs below). Static blogs are listed in
+ * Dynamic blogs come from the blogs API (address from the API_URL environment variable). Static blogs are listed in
  * blogs-static.js and are merged in by loadAll(). */
 (function () {
-  var isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
-  var API_URL = isLocal
-    ? 'http://localhost:5500/api/v1/blogs'
-    : 'https://api-webstrail.webstrail.com/api/v1/blogs';
+  // API address comes from the API_URL environment variable, served as /api-config.js
+  var API_URL = (window.WEBSTRAIL_API_URL || '').replace(/\/+$/, '') + '/api/v1/blogs';
 
   function fromApi() {
-    return fetch(API_URL, { cache: 'no-store' }).then(function (res) {
+    var ctl = typeof AbortController === 'function' ? new AbortController() : null;
+    var timer = ctl ? setTimeout(function () { ctl.abort(); }, 8000) : null; // never wait forever
+    return fetch(API_URL, { cache: 'no-store', signal: ctl ? ctl.signal : undefined }).then(function (res) {
+      if (timer) clearTimeout(timer);
       if (!res.ok) throw new Error('API ' + res.status);
       return res.json();
     }).then(function (data) {
