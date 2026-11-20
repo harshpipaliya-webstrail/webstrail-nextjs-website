@@ -3,6 +3,7 @@
 // The browser loads the same data on its own (public/case-studies-data.js).
 import { staticCaseStudySlugs } from '@/lib/static-case-studies';
 import { api } from '@/lib/api';
+import { getJson } from '@/lib/http';
 
 const API_URL = api('/api/v1/case-studies');
 
@@ -37,9 +38,7 @@ export function fetchDynamicCaseStudies(): Promise<DynamicCaseStudy[] | null> {
 
 async function readDynamicCaseStudies(): Promise<DynamicCaseStudy[] | null> {
   try {
-    const res = await fetch(API_URL, { cache: 'no-store', signal: AbortSignal.timeout(15000) });
-    if (!res.ok) throw new Error('API responded ' + res.status);
-    const data = await res.json();
+    const data = await getJson<Record<string, unknown> | Record<string, unknown>[]>(API_URL);
     const rows: Record<string, unknown>[] = Array.isArray(data)
       ? data
       : (Object.values(data || {}).find(Array.isArray) as Record<string, unknown>[] | undefined) ?? [];

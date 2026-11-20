@@ -2,6 +2,8 @@
 // a blog body can be rendered on the server (at build time). No dependencies: a small tokenizer.
 // Keeps headings, paragraphs, lists, links, images, tables, bold/italic; drops Google's styling.
 
+import { getText } from '@/lib/http';
+
 type Style = { bold: boolean; italic: boolean };
 
 const VOID = new Set(['br', 'hr', 'img', 'meta', 'link', 'input', 'col']);
@@ -136,9 +138,7 @@ export function gdocToHtml(page: string): string {
 export async function fetchGoogleDocHtml(docUrl: string): Promise<string> {
   try {
     const url = docUrl.replace(/([?&])embedded=true&?/, '$1').replace(/[?&]$/, '');
-    const res = await fetch(url, { cache: 'no-store', signal: AbortSignal.timeout(20000) });
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    return gdocToHtml(await res.text());
+    return gdocToHtml(await getText(url, 20000));
   } catch (err) {
     console.warn('[gdoc] could not read the document:', (err as Error).message);
     return '';

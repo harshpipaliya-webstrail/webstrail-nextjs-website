@@ -3,6 +3,7 @@
 // The browser loads the same data on its own (public/blogs-data.js).
 import { manifest } from '@/lib/content';
 import { api } from '@/lib/api';
+import { getJson } from '@/lib/http';
 
 const API_URL = api('/api/v1/blogs');
 
@@ -47,9 +48,7 @@ export function fetchDynamicBlogs(): Promise<DynamicBlog[] | null> {
 
 async function readDynamicBlogs(): Promise<DynamicBlog[] | null> {
   try {
-    const res = await fetch(API_URL, { cache: 'no-store', signal: AbortSignal.timeout(15000) });
-    if (!res.ok) throw new Error('API responded ' + res.status);
-    const data = await res.json();
+    const data = await getJson<{ blogs?: Record<string, string>[] }>(API_URL);
     const rows: Record<string, string>[] = Array.isArray(data?.blogs) ? data.blogs : [];
     const taken = staticBlogSlugs();
     const seen = new Set<string>();
